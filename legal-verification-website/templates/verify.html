@@ -1,0 +1,349 @@
+{% extends "base.html" %}
+
+{% block title %}Verify Document - Legal Verification Protocol{% endblock %}
+
+{% block extra_head %}
+<style>
+    .drop-zone {
+        border: 3px dashed #0d6efd;
+        border-radius: 10px;
+        padding: 40px;
+        text-align: center;
+        transition: all 0.3s ease;
+        cursor: pointer;
+        background-color: #f8f9fa;
+    }
+    .drop-zone:hover {
+        background-color: #e7f1ff;
+        border-color: #0a58ca;
+    }
+    .drop-zone.dragover {
+        background-color: #cfe2ff;
+        border-color: #0a58ca;
+        transform: scale(1.02);
+    }
+    #verificationReport {
+        white-space: pre-wrap;
+        font-family: 'Georgia', serif;
+        line-height: 1.8;
+    }
+    .verification-loading {
+        display: none;
+    }
+    .verification-loading.active {
+        display: block;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<!-- Page Header -->
+<section class="bg-primary text-white py-5">
+    <div class="container">
+        <h1 class="display-5 fw-bold"><i class="bi bi-upload"></i> Verify Your Document</h1>
+        <p class="lead">Upload your ET/EAT document for comprehensive verification</p>
+    </div>
+</section>
+
+<!-- Verification Form -->
+<section class="py-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+
+                <!-- Instructions -->
+                <div class="alert alert-info mb-4">
+                    <h5 class="alert-heading"><i class="bi bi-info-circle"></i> Before You Begin</h5>
+                    <ul class="mb-2">
+                        <li>Ensure your document is in <strong>.docx, .pdf, or .txt</strong> format (max 16MB)</li>
+                        <li>Consider <strong>redacting sensitive personal information</strong> before upload</li>
+                        <li>Do not upload third-party confidential documents without consent</li>
+                        <li>Review our <a href="{{ url_for('legal') }}" class="alert-link">legal disclaimer</a> before proceeding</li>
+                    </ul>
+                </div>
+
+                <!-- Verification Form Card -->
+                <div class="card shadow-lg border-0 mb-4" id="verificationForm">
+                    <div class="card-body p-4">
+                        <form id="uploadForm" enctype="multipart/form-data">
+
+                            <!-- Document Type -->
+                            <div class="mb-4">
+                                <label for="documentType" class="form-label fw-bold">
+                                    <i class="bi bi-file-earmark-text"></i> Document Type
+                                </label>
+                                <select class="form-select form-select-lg" id="documentType" name="document_type" required>
+                                    <option value="General Employment Tribunal Document">General Employment Tribunal Document</option>
+                                    <option value="ET1 - Claim Form">ET1 - Claim Form</option>
+                                    <option value="ET3 - Response Form">ET3 - Response Form</option>
+                                    <option value="Tribunal Written Submission">Tribunal Written Submission</option>
+                                    <option value="EAT Grounds of Appeal">EAT Grounds of Appeal</option>
+                                    <option value="EAT Skeleton Argument">EAT Skeleton Argument</option>
+                                    <option value="Amendment Application">Amendment Application</option>
+                                    <option value="Reconsideration Application">Reconsideration Application</option>
+                                    <option value="Case Management Application">Case Management Application</option>
+                                    <option value="Witness Statement">Witness Statement</option>
+                                </select>
+                            </div>
+
+                            <!-- Upload Method Tabs -->
+                            <ul class="nav nav-pills mb-3" id="uploadTabs" role="tablist">
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link active" id="file-tab" data-bs-toggle="pill" data-bs-target="#fileUpload" type="button" role="tab">
+                                        <i class="bi bi-cloud-upload"></i> Upload File
+                                    </button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link" id="text-tab" data-bs-toggle="pill" data-bs-target="#textPaste" type="button" role="tab">
+                                        <i class="bi bi-clipboard"></i> Paste Text
+                                    </button>
+                                </li>
+                            </ul>
+
+                            <!-- Tab Content -->
+                            <div class="tab-content" id="uploadTabContent">
+
+                                <!-- File Upload Tab -->
+                                <div class="tab-pane fade show active" id="fileUpload" role="tabpanel">
+                                    <div class="drop-zone mb-3" id="dropZone">
+                                        <input type="file" id="fileInput" name="file" accept=".txt,.pdf,.doc,.docx" style="display: none;">
+                                        <i class="bi bi-cloud-arrow-up display-1 text-primary mb-3"></i>
+                                        <h4>Drag & Drop Your Document Here</h4>
+                                        <p class="text-muted">or click to browse</p>
+                                        <p class="text-muted small mb-0">
+                                            Supported formats: .docx, .pdf, .txt (Max 16MB)
+                                        </p>
+                                    </div>
+                                    <div id="fileInfo" class="alert alert-success" style="display: none;">
+                                        <i class="bi bi-file-check"></i> <strong>Selected file:</strong> <span id="fileName"></span>
+                                    </div>
+                                </div>
+
+                                <!-- Text Paste Tab -->
+                                <div class="tab-pane fade" id="textPaste" role="tabpanel">
+                                    <div class="mb-3">
+                                        <label for="documentText" class="form-label fw-bold">Paste Document Text</label>
+                                        <textarea class="form-control" id="documentText" name="document_text" rows="15"
+                                                  placeholder="Paste your document text here (minimum 100 characters)..."></textarea>
+                                        <div class="form-text">
+                                            Character count: <span id="charCount">0</span> (minimum 100 required)
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <!-- Terms Acceptance -->
+                            <div class="mb-4">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="termsAccept" name="terms_accepted" required>
+                                    <label class="form-check-label" for="termsAccept">
+                                        <strong>I have read and accept the <a href="{{ url_for('legal') }}" target="_blank">terms and legal disclaimer</a></strong>
+                                    </label>
+                                </div>
+                                <div class="form-check mt-2">
+                                    <input class="form-check-input" type="checkbox" id="confidentialConfirm" required>
+                                    <label class="form-check-label" for="confidentialConfirm">
+                                        I confirm I am not uploading third-party confidential data without consent
+                                    </label>
+                                </div>
+                            </div>
+
+                            <!-- Submit Button -->
+                            <div class="d-grid gap-2">
+                                <button type="submit" class="btn btn-primary btn-lg" id="submitBtn">
+                                    <i class="bi bi-shield-check"></i> Start Verification
+                                </button>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Loading State -->
+                <div class="card shadow-lg border-0 verification-loading" id="loadingCard">
+                    <div class="card-body p-5 text-center">
+                        <div class="spinner-border text-primary mb-3" role="status" style="width: 4rem; height: 4rem;">
+                            <span class="visually-hidden">Verifying...</span>
+                        </div>
+                        <h4 class="mb-3">Verifying Your Document...</h4>
+                        <p class="text-muted">
+                            Our AI agent is analyzing your document against UK Employment Law standards.
+                            This typically takes 2-5 minutes for comprehensive analysis.
+                        </p>
+                        <div class="progress mt-3" style="height: 25px;">
+                            <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
+                                 style="width: 100%">Analyzing...</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Results Card -->
+                <div class="card shadow-lg border-0 d-none" id="resultsCard">
+                    <div class="card-header bg-success text-white d-flex justify-content-between align-items-center">
+                        <h4 class="mb-0"><i class="bi bi-check-circle"></i> Verification Report</h4>
+                        <button class="btn btn-light btn-sm" id="printReport">
+                            <i class="bi bi-printer"></i> Print Report
+                        </button>
+                    </div>
+                    <div class="card-body p-4">
+                        <div class="alert alert-warning">
+                            <strong><i class="bi bi-exclamation-triangle"></i> Important Reminder:</strong>
+                            This report is for educational purposes only and does not constitute legal advice.
+                            Always consult a qualified solicitor or barrister before filing.
+                        </div>
+                        <div id="verificationReport" class="mt-4"></div>
+                        <hr class="my-4">
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+                            <button class="btn btn-primary" id="verifyAnother">
+                                <i class="bi bi-arrow-clockwise"></i> Verify Another Document
+                            </button>
+                            <a href="{{ url_for('support') }}" class="btn btn-success">
+                                <i class="bi bi-heart"></i> Support This Tool
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Error Card -->
+                <div class="card shadow-lg border-danger d-none" id="errorCard">
+                    <div class="card-header bg-danger text-white">
+                        <h4 class="mb-0"><i class="bi bi-x-circle"></i> Verification Error</h4>
+                    </div>
+                    <div class="card-body p-4">
+                        <div class="alert alert-danger">
+                            <strong>An error occurred:</strong>
+                            <p id="errorMessage" class="mb-0 mt-2"></p>
+                        </div>
+                        <button class="btn btn-primary" id="tryAgain">
+                            <i class="bi bi-arrow-clockwise"></i> Try Again
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block extra_scripts %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const dropZone = document.getElementById('dropZone');
+    const fileInput = document.getElementById('fileInput');
+    const fileInfo = document.getElementById('fileInfo');
+    const fileName = document.getElementById('fileName');
+    const uploadForm = document.getElementById('uploadForm');
+    const documentText = document.getElementById('documentText');
+    const charCount = document.getElementById('charCount');
+    const submitBtn = document.getElementById('submitBtn');
+
+    const verificationFormCard = document.getElementById('verificationForm');
+    const loadingCard = document.getElementById('loadingCard');
+    const resultsCard = document.getElementById('resultsCard');
+    const errorCard = document.getElementById('errorCard');
+    const verificationReport = document.getElementById('verificationReport');
+    const errorMessage = document.getElementById('errorMessage');
+
+    // Drag and drop handlers
+    dropZone.addEventListener('click', () => fileInput.click());
+
+    dropZone.addEventListener('dragover', (e) => {
+        e.preventDefault();
+        dropZone.classList.add('dragover');
+    });
+
+    dropZone.addEventListener('dragleave', () => {
+        dropZone.classList.remove('dragover');
+    });
+
+    dropZone.addEventListener('drop', (e) => {
+        e.preventDefault();
+        dropZone.classList.remove('dragover');
+        const files = e.dataTransfer.files;
+        if (files.length > 0) {
+            fileInput.files = files;
+            updateFileInfo(files[0]);
+        }
+    });
+
+    fileInput.addEventListener('change', (e) => {
+        if (e.target.files.length > 0) {
+            updateFileInfo(e.target.files[0]);
+        }
+    });
+
+    function updateFileInfo(file) {
+        fileName.textContent = file.name;
+        fileInfo.style.display = 'block';
+    }
+
+    // Character counter for text paste
+    documentText.addEventListener('input', () => {
+        charCount.textContent = documentText.value.length;
+    });
+
+    // Form submission
+    uploadForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        const formData = new FormData(uploadForm);
+        formData.append('terms_accepted', 'true');
+
+        // Show loading, hide form
+        verificationFormCard.classList.add('d-none');
+        loadingCard.classList.add('active');
+        resultsCard.classList.add('d-none');
+        errorCard.classList.add('d-none');
+
+        try {
+            const response = await fetch('/api/verify', {
+                method: 'POST',
+                body: formData
+            });
+
+            const data = await response.json();
+
+            if (response.ok && data.success) {
+                // Show results
+                verificationReport.textContent = data.report;
+                loadingCard.classList.remove('active');
+                resultsCard.classList.remove('d-none');
+            } else {
+                // Show error
+                errorMessage.textContent = data.error || 'An unknown error occurred';
+                loadingCard.classList.remove('active');
+                errorCard.classList.remove('d-none');
+            }
+        } catch (error) {
+            errorMessage.textContent = 'Network error: ' + error.message;
+            loadingCard.classList.remove('active');
+            errorCard.classList.remove('d-none');
+        }
+    });
+
+    // Print report
+    document.getElementById('printReport').addEventListener('click', () => {
+        window.print();
+    });
+
+    // Verify another document
+    document.getElementById('verifyAnother').addEventListener('click', () => {
+        uploadForm.reset();
+        fileInfo.style.display = 'none';
+        charCount.textContent = '0';
+        resultsCard.classList.add('d-none');
+        verificationFormCard.classList.remove('d-none');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // Try again button
+    document.getElementById('tryAgain').addEventListener('click', () => {
+        errorCard.classList.add('d-none');
+        verificationFormCard.classList.remove('d-none');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+});
+</script>
+{% endblock %}

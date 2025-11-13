@@ -1,0 +1,254 @@
+{% extends "base.html" %}
+
+{% block title %}How It Works - Legal Verification Protocol{% endblock %}
+
+{% block content %}
+<!-- Page Header -->
+<section class="bg-primary text-white py-5">
+    <div class="container">
+        <h1 class="display-5 fw-bold"><i class="bi bi-question-circle"></i> How It Works</h1>
+        <p class="lead">Simple, fast, and comprehensive document verification in 4 easy steps</p>
+    </div>
+</section>
+
+<!-- Steps Section -->
+<section class="py-5">
+    <div class="container">
+        <div class="row g-4">
+            <!-- Step 1 -->
+            <div class="col-md-6">
+                <div class="card border-primary h-100 shadow-sm">
+                    <div class="card-body p-4">
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="step-number bg-primary text-white rounded-circle d-flex align-items-center justify-content-center me-3" style="width: 60px; height: 60px; font-size: 1.5rem; font-weight: bold;">
+                                1
+                            </div>
+                            <h3 class="mb-0">Upload Your Document</h3>
+                        </div>
+                        <p class="text-muted">
+                            Upload your draft document in Word (.docx), PDF, or plain text format. Alternatively, paste your text directly into the verification form.
+                        </p>
+                        <div class="alert alert-info mb-0">
+                            <strong>Supported formats:</strong> .docx, .doc, .pdf, .txt<br>
+                            <strong>Maximum size:</strong> 16MB
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 2 -->
+            <div class="col-md-6">
+                <div class="card border-success h-100 shadow-sm">
+                    <div class="card-body p-4">
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="step-number bg-success text-white rounded-circle d-flex align-items-center justify-content-center me-3" style="width: 60px; height: 60px; font-size: 1.5rem; font-weight: bold;">
+                                2
+                            </div>
+                            <h3 class="mb-0">AI Analysis</h3>
+                        </div>
+                        <p class="text-muted">
+                            Our AI agent analyzes your document against UK Employment Law standards, procedural rules (ET/EAT Rules 2024), and best practice guidelines.
+                        </p>
+                        <div class="alert alert-success mb-0">
+                            <strong>Analysis includes:</strong>
+                            <ul class="mb-0 mt-2">
+                                <li>Substantive law verification</li>
+                                <li>Procedural compliance check</li>
+                                <li>Pleading quality assessment</li>
+                                <li>Case law verification</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 3 -->
+            <div class="col-md-6">
+                <div class="card border-info h-100 shadow-sm">
+                    <div class="card-body p-4">
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="step-number bg-info text-white rounded-circle d-flex align-items-center justify-content-center me-3" style="width: 60px; height: 60px; font-size: 1.5rem; font-weight: bold;">
+                                3
+                            </div>
+                            <h3 class="mb-0">Receive Report</h3>
+                        </div>
+                        <p class="text-muted">
+                            Get a detailed verification report with identified issues categorized by severity (Critical, Major, Minor) and actionable recommendations.
+                        </p>
+                        <div class="alert alert-info mb-0">
+                            <strong>Report sections:</strong>
+                            <ul class="mb-0 mt-2">
+                                <li>Executive summary</li>
+                                <li>Issues by category</li>
+                                <li>Recommendations</li>
+                                <li>Risk assessment</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 4 -->
+            <div class="col-md-6">
+                <div class="card border-warning h-100 shadow-sm">
+                    <div class="card-body p-4">
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="step-number bg-warning text-dark rounded-circle d-flex align-items-center justify-content-center me-3" style="width: 60px; height: 60px; font-size: 1.5rem; font-weight: bold;">
+                                4
+                            </div>
+                            <h3 class="mb-0">Refine & Finalize</h3>
+                        </div>
+                        <p class="text-muted">
+                            Use the verification report to improve your document. Address critical and major issues before filing. Seek qualified legal advice where needed.
+                        </p>
+                        <div class="alert alert-warning mb-0">
+                            <strong><i class="bi bi-exclamation-triangle"></i> Remember:</strong> This tool provides document analysis, not legal advice. Always consult a qualified solicitor or barrister for representation.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Typical Turnaround -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <h2 class="text-center mb-4"><i class="bi bi-clock"></i> Typical Turnaround</h2>
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card shadow-sm">
+                    <div class="card-body text-center p-5">
+                        <div class="mb-3">
+                            <i class="bi bi-lightning-charge text-warning" style="font-size: 4rem;"></i>
+                        </div>
+                        <h3 class="text-primary mb-3">Instant to 5 Minutes</h3>
+                        <p class="lead text-muted mb-0">
+                            Most documents are analyzed within 2-5 minutes. Complex documents with extensive case law may take slightly longer.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Supported Documents -->
+<section class="py-5">
+    <div class="container">
+        <h2 class="text-center mb-5">Supported Document Types</h2>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body p-4">
+                        <h5 class="card-title text-primary">
+                            <i class="bi bi-file-earmark-text"></i> ET1 / ET3 Forms
+                        </h5>
+                        <p class="card-text text-muted">
+                            Employment Tribunal claim forms (ET1) and response forms (ET3) with verification of all mandatory sections and ACAS requirements.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body p-4">
+                        <h5 class="card-title text-success">
+                            <i class="bi bi-file-earmark-ruled"></i> Tribunal Submissions
+                        </h5>
+                        <p class="card-text text-muted">
+                            Written submissions, witness statements, skeleton arguments, and other tribunal documents with quality and compliance checks.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body p-4">
+                        <h5 class="card-title text-info">
+                            <i class="bi bi-file-earmark-arrow-up"></i> EAT Appeals
+                        </h5>
+                        <p class="card-text text-muted">
+                            Employment Appeal Tribunal grounds of appeal, skeleton arguments, and applications with permission requirements verification.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body p-4">
+                        <h5 class="card-title text-warning">
+                            <i class="bi bi-file-earmark-check"></i> Applications
+                        </h5>
+                        <p class="card-text text-muted">
+                            Amendment applications, reconsideration applications, and case management applications with proper basis verification.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body p-4">
+                        <h5 class="card-title text-danger">
+                            <i class="bi bi-file-earmark-medical"></i> Written Reasons
+                        </h5>
+                        <p class="card-text text-muted">
+                            Responses to tribunal written reasons and requests for clarification with procedural compliance checks.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body p-4">
+                        <h5 class="card-title text-secondary">
+                            <i class="bi bi-file-earmark-plus"></i> Other Documents
+                        </h5>
+                        <p class="card-text text-muted">
+                            General employment law documents, legal submissions, and drafts requiring quality assurance and verification.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- What We Don't Do -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <h2 class="text-center mb-5">What This Tool Does NOT Do</h2>
+        <div class="row justify-content-center">
+            <div class="col-md-10">
+                <div class="alert alert-danger">
+                    <h5 class="alert-heading"><i class="bi bi-x-circle"></i> Important Limitations</h5>
+                    <ul class="mb-0">
+                        <li><strong>Not legal advice:</strong> This tool does not provide legal advice or strategy guidance</li>
+                        <li><strong>Not representation:</strong> Does not create a solicitor-client relationship or provide legal representation</li>
+                        <li><strong>Not a substitute:</strong> Cannot replace qualified legal professionals regulated by SRA/BSB</li>
+                        <li><strong>Not guaranteed:</strong> AI analysis may contain errors; no guarantee of outcomes</li>
+                        <li><strong>Not regulated:</strong> This is an educational tool, not a regulated legal service</li>
+                        <li><strong>Not deadline management:</strong> You remain responsible for all deadlines and filings</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="py-5">
+    <div class="container text-center">
+        <h2 class="mb-4">Ready to Get Started?</h2>
+        <p class="lead text-muted mb-4">Upload your document now and receive instant verification</p>
+        <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+            <a href="{{ url_for('verify') }}" class="btn btn-primary btn-lg px-5">
+                <i class="bi bi-upload"></i> Verify Your Document
+            </a>
+            <a href="{{ url_for('legal') }}" class="btn btn-outline-secondary btn-lg px-5">
+                <i class="bi bi-info-circle"></i> Read Legal Terms
+            </a>
+        </div>
+    </div>
+</section>
+{% endblock %}

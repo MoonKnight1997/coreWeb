@@ -1,0 +1,179 @@
+{% extends "base.html" %}
+
+{% block title %}Legal Verification Protocol - UK Employment Law Document Verification{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero-section bg-primary text-white py-5">
+    <div class="container py-5">
+        <div class="row align-items-center">
+            <div class="col-lg-7">
+                <h1 class="display-4 fw-bold mb-4">
+                    Legal Verification Protocol
+                </h1>
+                <p class="lead mb-4">
+                    AI-assisted verification of Employment Tribunal and EAT documents
+                </p>
+                <div class="alert alert-light mb-4">
+                    <i class="bi bi-info-circle"></i>
+                    <strong>What it does:</strong> Structured verification of draft ET/EAT documents against substantive law, procedural rules, and drafting standards.
+                </div>
+                <div class="alert alert-light mb-4">
+                    <i class="bi bi-people"></i>
+                    <strong>Who it's for:</strong> Individuals, advisors, and representatives wanting a quality check before filing.
+                </div>
+                <div class="d-grid gap-2 d-md-flex">
+                    <a href="{{ url_for('verify') }}" class="btn btn-light btn-lg px-4">
+                        <i class="bi bi-upload"></i> Verify Document Now
+                    </a>
+                    <a href="{{ url_for('how_it_works') }}" class="btn btn-outline-light btn-lg px-4">
+                        <i class="bi bi-question-circle"></i> How It Works
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-5 text-center mt-4 mt-lg-0">
+                <div class="hero-icon-container">
+                    <i class="bi bi-shield-check display-1" style="font-size: 12rem; opacity: 0.9;"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Key Features -->
+<section class="py-5">
+    <div class="container">
+        <h2 class="text-center mb-5">Key Features</h2>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body text-center p-4">
+                        <div class="feature-icon mb-3">
+                            <i class="bi bi-check-circle text-success" style="font-size: 3rem;"></i>
+                        </div>
+                        <h5 class="card-title">Rules-Based Analysis</h5>
+                        <p class="card-text text-muted">
+                            Comprehensive verification against ET/EAT Rules 2024, substantive law, and best practice standards
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body text-center p-4">
+                        <div class="feature-icon mb-3">
+                            <i class="bi bi-clock-history text-primary" style="font-size: 3rem;"></i>
+                        </div>
+                        <h5 class="card-title">Instant Results</h5>
+                        <p class="card-text text-muted">
+                            Upload your document and receive a detailed verification report within minutes
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body text-center p-4">
+                        <div class="feature-icon mb-3">
+                            <i class="bi bi-file-earmark-text text-info" style="font-size: 3rem;"></i>
+                        </div>
+                        <h5 class="card-title">Multiple Document Types</h5>
+                        <p class="card-text text-muted">
+                            ET1/ET3 forms, tribunal submissions, EAT appeals, skeleton arguments, and applications
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- What We Check -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <h2 class="text-center mb-5">Verification Framework</h2>
+        <div class="row g-4">
+            <div class="col-md-6">
+                <div class="verification-item p-4 bg-white rounded shadow-sm h-100">
+                    <h5><i class="bi bi-book text-primary"></i> Substantive Law</h5>
+                    <ul class="text-muted mb-0">
+                        <li>Legal claims and defenses</li>
+                        <li>Current case law (2024 Rules)</li>
+                        <li>Accuracy of legal principles</li>
+                        <li>Strength of arguments</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="verification-item p-4 bg-white rounded shadow-sm h-100">
+                    <h5><i class="bi bi-clipboard-check text-success"></i> Procedural Compliance</h5>
+                    <ul class="text-muted mb-0">
+                        <li>Time limits and deadlines</li>
+                        <li>Required forms and contents</li>
+                        <li>Service and filing procedures</li>
+                        <li>Case management compliance</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="verification-item p-4 bg-white rounded shadow-sm h-100">
+                    <h5><i class="bi bi-pencil-square text-info"></i> Pleading Quality</h5>
+                    <ul class="text-muted mb-0">
+                        <li>Sufficient factual particulars</li>
+                        <li>Clear chronology and dates</li>
+                        <li>Quantum properly pleaded</li>
+                        <li>Causal links established</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="verification-item p-4 bg-white rounded shadow-sm h-100">
+                    <h5><i class="bi bi-diagram-3 text-warning"></i> Internal Consistency</h5>
+                    <ul class="text-muted mb-0">
+                        <li>Logical flow and structure</li>
+                        <li>No contradictions</li>
+                        <li>Evidence properly referenced</li>
+                        <li>Clear and concise drafting</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Important Notice -->
+<section class="py-5">
+    <div class="container">
+        <div class="alert alert-warning border-warning shadow-sm">
+            <h5 class="alert-heading">
+                <i class="bi bi-exclamation-triangle-fill"></i> Important Notice
+            </h5>
+            <p class="mb-2">
+                <strong>This is an AI-assisted educational tool, not a law firm.</strong>
+            </p>
+            <ul class="mb-2">
+                <li>Not regulated by the SRA or BSB</li>
+                <li>Does not provide legal advice or representation</li>
+                <li>Does not create a solicitor-client relationship</li>
+                <li>Focus: Quality of reasoning, authorities, and procedure</li>
+            </ul>
+            <hr>
+            <p class="mb-0">
+                You remain responsible for all deadlines, filings, and obtaining qualified legal representation.
+                <a href="{{ url_for('legal') }}" class="alert-link">Read full legal disclaimer</a>
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="py-5 bg-primary text-white">
+    <div class="container text-center">
+        <h2 class="mb-4">Ready to Verify Your Document?</h2>
+        <p class="lead mb-4">Upload your ET or EAT document and receive a comprehensive verification report</p>
+        <a href="{{ url_for('verify') }}" class="btn btn-light btn-lg px-5">
+            <i class="bi bi-upload"></i> Start Verification
+        </a>
+    </div>
+</section>
+{% endblock %}
