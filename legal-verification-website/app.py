@@ -1,274 +1,301 @@
 """
-Legal Verification Protocol Website
+Legal Verification Protocol Website v2.0
 Flask application for UK Employment Law document verification
+
+Comprehensive redesign with modular architecture, security enhancements,
+and improved error handling.
 """
 
-import os
-import tempfile
 from flask import Flask, render_template, request, jsonify, session
-from werkzeug.utils import secure_filename
-import anthropic
+from flask_limiter import Limiter
+from flask_limiter.util import get_remote_address
+from flask_talisman import Talisman
 from datetime import datetime
-import uuid
+
+# Import application modules
+from app.config import current_config
+from app.utils.logger import logger, log_request, log_error
+from app.utils.decorators import (
+    handle_errors,
+    log_request_info,
+    require_terms_acceptance
+)
+from app.services.document import process_document, DocumentProcessingError
+from app.services.verification import LegalVerificationService, VerificationError
+
+
+# ===========================
+# APPLICATION INITIALIZATION
+# ===========================
 
 app = Flask(__name__)
-app.secret_key = os.environ.get('FLASK_SECRET_KEY', 'dev-secret-key-change-in-production')
-app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024  # 16MB max file size
-app.config['UPLOAD_FOLDER'] = 'uploads'
 
-# Allowed file extensions
-ALLOWED_EXTENSIONS = {'txt', 'pdf', 'docx', 'doc'}
+# Load configuration
+app.config.from_object(current_config)
 
-# Anthropic API client
-anthropic_client = anthropic.Anthropic(
-    api_key=os.environ.get('ANTHROPIC_API_KEY')
-)
+# Initialize verification service
+verification_service = LegalVerificationService()
 
-def allowed_file(filename):
-    """Check if file extension is allowed"""
-    return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
+# ===========================
+# SECURITY SETUP
+# ===========================
 
-def extract_text_from_file(filepath):
-    """Extract text from uploaded file"""
-    ext = filepath.rsplit('.', 1)[1].lower()
+# Security headers
+if current_config.ENABLE_SECURITY_HEADERS:
+    Talisman(
+        app,
+        force_https=current_config.FORCE_HTTPS,
+        content_security_policy=current_config.CSP_DIRECTIVES,
+        content_security_policy_nonce_in=['script-src', 'style-src'],
+        strict_transport_security=True,
+        strict_transport_security_max_age=31536000,
+        frame_options='DENY',
+        referrer_policy='strict-origin-when-cross-origin'
+    )
 
-    if ext == 'txt':
-        with open(filepath, 'r', encoding='utf-8', errors='ignore') as f:
-            return f.read()
+# Rate limiting
+if current_config.RATELIMIT_ENABLED:
+    limiter = Limiter(
+        app=app,
+        key_func=get_remote_address,
+        default_limits=[current_config.RATELIMIT_DEFAULT],
+        storage_uri=current_config.RATELIMIT_STORAGE_URL,
+        on_breach=lambda limit: logger.warning(
+            'Rate limit exceeded',
+            ip=get_remote_address(),
+            limit=str(limit)
+        )
+    )
+else:
+    # Create dummy limiter that doesn't actually limit
+    limiter = Limiter(
+        app=app,
+        key_func=get_remote_address,
+        enabled=False
+    )
 
-    elif ext == 'pdf':
-        try:
-            import PyPDF2
-            with open(filepath, 'rb') as f:
-                pdf_reader = PyPDF2.PdfReader(f)
-                text = ''
-                for page in pdf_reader.pages:
-                    text += page.extract_text() + '\n'
-                return text
-        except Exception as e:
-            return f"Error extracting PDF: {str(e)}"
+# ===========================
+# REQUEST/RESPONSE HANDLERS
+# ===========================
 
-    elif ext in ['docx', 'doc']:
-        try:
-            import docx
-            doc = docx.Document(filepath)
-            text = '\n'.join([para.text for para in doc.paragraphs])
-            return text
-        except Exception as e:
-            return f"Error extracting Word document: {str(e)}"
-
-    return "Unsupported file format"
-
-def verify_legal_document(document_text, document_type="General Employment Tribunal Document"):
-    """
-    Verify legal document using Claude with extended thinking and web search
-    """
-
-    verification_prompt = f"""You are a Legal Verification Protocol Agent specializing in UK Employment Law.
-
-Your task is to perform a MANDATORY VERIFICATION PROTOCOL on the following document.
-
-DOCUMENT TYPE: {document_type}
-
-VERIFICATION FRAMEWORK:
-You MUST analyze the document against these criteria:
-
-1. SUBSTANTIVE LAW VERIFICATION
-   - Identify all legal claims/defenses cited
-   - Verify accuracy of legal principles stated
-   - Check for current case law (2024 Employment Tribunal Rules)
-   - Flag any outdated or incorrect legal references
-   - Assess strength of legal arguments
-
-2. PROCEDURAL COMPLIANCE (ET/EAT Rules 2024)
-   - Time limits compliance
-   - Required forms and contents
-   - Proper service/filing procedures
-   - Case management directions compliance
-   - Mandatory orders compliance
-
-3. PLEADING & PARTICULARISATION STANDARDS
-   - Sufficient factual particulars
-   - Clear chronology
-   - Specific dates, times, persons
-   - Quantum properly pleaded
-   - Causal links established
-   - Material facts vs evidence distinction
-
-4. INTERNAL CONSISTENCY & REASONING QUALITY
-   - Logical flow and structure
-   - No contradictions
-   - Evidence properly referenced
-   - Arguments support conclusions
-   - Clear and concise drafting
-
-5. DOCUMENT-SPECIFIC REQUIREMENTS
-   For ET1: All mandatory sections, ACAS certificate, discrimination details
-   For ET3: Response time, grounds fully stated, jurisdictional challenges
-   For EAT Appeals: Permission requirements, grounds properly framed, authorities cited
-   For Applications: Proper basis, supporting evidence, proportionality
-
-MANDATORY LEGAL DISCLAIMER:
-This verification is an EDUCATIONAL TOOL ONLY. It does NOT constitute:
-- Legal advice or representation
-- A solicitor-client relationship
-- Regulated legal services under SRA/BSB rules
-
-OUTPUT FORMAT:
-Provide a structured report with:
-
-## EXECUTIVE SUMMARY
-[Overall assessment: Ready/Needs Revision/Major Issues]
-
-## SUBSTANTIVE LAW ISSUES
-[List all legal issues found with severity: CRITICAL/MAJOR/MINOR]
-
-## PROCEDURAL COMPLIANCE
-[List all procedural issues with severity]
-
-## PLEADING QUALITY
-[Assessment of particularisation and drafting quality]
-
-## AUTHORITIES & CITATIONS
-[Verify all case law cited - check currency and accuracy]
-
-## RECOMMENDATIONS
-[Prioritized list of required changes]
-
-## RISK ASSESSMENT
-[Litigation risks identified]
-
----
-DOCUMENT TO VERIFY:
-
-{document_text}
-
----
-
-Begin your mandatory verification protocol now. Use extended thinking to analyze complex legal issues. Search for current case law where needed."""
-
-    try:
-        # Create message with extended thinking and web search
-        response = anthropic_client.messages.create(
-            model="claude-sonnet-4-20250514",
-            max_tokens=16000,
-            thinking={
-                "type": "enabled",
-                "budget_tokens": 10000
-            },
-            temperature=0.2,
-            messages=[
-                {
-                    "role": "user",
-                    "content": verification_prompt
-                }
-            ]
+@app.before_request
+def before_request():
+    """Log all requests."""
+    if not request.path.startswith('/static'):
+        logger.info(
+            'Request received',
+            method=request.method,
+            path=request.path,
+            ip=request.remote_addr
         )
 
-        # Extract verification report from response
-        report = ""
-        for block in response.content:
-            if block.type == "text":
-                report += block.text + "\n"
 
-        return report
+@app.after_request
+def after_request(response):
+    """Add security headers and log responses."""
+    # Additional security headers not covered by Talisman
+    response.headers['X-Content-Type-Options'] = 'nosniff'
+    response.headers['X-XSS-Protection'] = '1; mode=block'
 
-    except Exception as e:
-        return f"Error during verification: {str(e)}"
+    return response
+
+
+@app.errorhandler(404)
+def not_found(error):
+    """Handle 404 errors."""
+    logger.warning('Page not found', path=request.path, ip=request.remote_addr)
+    return render_template('errors/404.html'), 404
+
+
+@app.errorhandler(500)
+def internal_error(error):
+    """Handle 500 errors."""
+    log_error(error, {'path': request.path, 'ip': request.remote_addr})
+    return render_template('errors/500.html'), 500
+
+
+@app.errorhandler(413)
+def request_entity_too_large(error):
+    """Handle file too large errors."""
+    logger.warning('File too large', ip=request.remote_addr)
+    return jsonify({
+        'success': False,
+        'error': {
+            'type': 'file_too_large',
+            'message': f'File too large. Maximum size is {current_config.MAX_CONTENT_LENGTH / (1024 * 1024):.0f}MB.'
+        }
+    }), 413
+
+
+@app.errorhandler(429)
+def ratelimit_handler(error):
+    """Handle rate limit errors."""
+    logger.warning('Rate limit hit', ip=request.remote_addr, endpoint=request.endpoint)
+    return jsonify({
+        'success': False,
+        'error': {
+            'type': 'rate_limit_exceeded',
+            'message': 'Too many requests. Please wait before trying again.'
+        }
+    }), 429
+
+
+# ===========================
+# ROUTES - PAGES
+# ===========================
 
 @app.route('/')
 def index():
-    """Home page"""
+    """Home page."""
     return render_template('index.html')
+
 
 @app.route('/how-it-works')
 def how_it_works():
-    """How it works page"""
+    """How it works page."""
     return render_template('how_it_works.html')
+
 
 @app.route('/legal')
 def legal():
-    """Legal and compliance page"""
+    """Legal and compliance page."""
     return render_template('legal.html')
+
 
 @app.route('/verify')
 def verify():
-    """Upload and verification page"""
+    """Upload and verification page."""
     return render_template('verify.html')
+
 
 @app.route('/support')
 def support():
-    """Support and donate page"""
+    """Support and donate page."""
     return render_template('support.html')
 
+
+# ===========================
+# ROUTES - API
+# ===========================
+
 @app.route('/api/verify', methods=['POST'])
+@limiter.limit(current_config.RATELIMIT_DEFAULT)
+@require_terms_acceptance
+@handle_errors
+@log_request_info
 def api_verify():
-    """API endpoint for document verification"""
+    """
+    API endpoint for document verification.
 
-    # Check if terms accepted
-    terms_accepted = request.form.get('terms_accepted') == 'true'
-    if not terms_accepted:
-        return jsonify({'error': 'You must accept the terms and conditions'}), 400
+    Expected form data:
+    - file: Document file (optional)
+    - document_text: Pasted text (optional)
+    - document_type: Type of document
+    - terms_accepted: Must be 'true'
 
-    # Get document text from upload or paste
-    document_text = None
-    document_type = request.form.get('document_type', 'General Employment Tribunal Document')
-
-    # Check for file upload
-    if 'file' in request.files:
-        file = request.files['file']
-        if file and file.filename and allowed_file(file.filename):
-            # Save file temporarily
-            filename = secure_filename(file.filename)
-            temp_path = os.path.join(tempfile.gettempdir(), f"{uuid.uuid4()}_{filename}")
-            file.save(temp_path)
-
-            # Extract text
-            document_text = extract_text_from_file(temp_path)
-
-            # Clean up
-            try:
-                os.remove(temp_path)
-            except:
-                pass
-        elif file and file.filename:
-            return jsonify({'error': 'Invalid file type. Please upload TXT, PDF, or DOCX files.'}), 400
-
-    # Check for pasted text
-    if not document_text:
-        document_text = request.form.get('document_text', '').strip()
-
-    if not document_text or len(document_text) < 100:
-        return jsonify({'error': 'Please provide a document with at least 100 characters'}), 400
-
-    # Verify document
+    Returns:
+        JSON response with verification report
+    """
     try:
-        report = verify_legal_document(document_text, document_type)
+        # Get document type
+        document_type = request.form.get(
+            'document_type',
+            'General Employment Tribunal Document'
+        )
+
+        # Process document (file or text)
+        file = request.files.get('file')
+        text = request.form.get('document_text', '').strip()
+
+        document_text = process_document(file, text)
+
+        logger.info(
+            'Document received for verification',
+            document_type=document_type,
+            text_length=len(document_text),
+            source='file' if file else 'text'
+        )
+
+        # Verify document
+        result = verification_service.verify_document(document_text, document_type)
 
         # Store in session for potential follow-up
         session['last_verification'] = {
-            'timestamp': datetime.now().isoformat(),
+            'timestamp': result['timestamp'],
             'document_type': document_type,
-            'report': report
+            'report_preview': result['report'][:500]  # Store preview only
         }
 
+        return jsonify(result), 200
+
+    except DocumentProcessingError as e:
+        logger.warning('Document processing error', error=str(e))
         return jsonify({
-            'success': True,
-            'report': report,
-            'timestamp': datetime.now().isoformat()
-        })
+            'success': False,
+            'error': {
+                'type': 'document_processing_error',
+                'message': str(e)
+            }
+        }), 400
 
-    except Exception as e:
-        return jsonify({'error': f'Verification failed: {str(e)}'}), 500
+    except VerificationError as e:
+        logger.error('Verification error', error=str(e))
+        return jsonify({
+            'success': False,
+            'error': {
+                'type': 'verification_error',
+                'message': str(e)
+            }
+        }), 500
 
-@app.errorhandler(413)
-def too_large(e):
-    """Handle file too large error"""
-    return jsonify({'error': 'File too large. Maximum size is 16MB.'}), 413
+
+@app.route('/api/health', methods=['GET'])
+def api_health():
+    """
+    Health check endpoint.
+
+    Returns:
+        JSON with application status
+    """
+    return jsonify({
+        'status': 'healthy',
+        'version': current_config.APP_VERSION,
+        'timestamp': datetime.now().isoformat()
+    }), 200
+
+
+# ===========================
+# TEMPLATE CONTEXT
+# ===========================
+
+@app.context_processor
+def inject_globals():
+    """Inject global variables into all templates."""
+    return {
+        'app_name': current_config.APP_NAME,
+        'app_version': current_config.APP_VERSION,
+        'now': datetime.now()
+    }
+
+
+# ===========================
+# APPLICATION ENTRY POINT
+# ===========================
 
 if __name__ == '__main__':
-    # Ensure upload folder exists
-    os.makedirs(app.config['UPLOAD_FOLDER'], exist_ok=True)
+    # Log startup
+    logger.info(
+        'Starting Legal Verification Protocol',
+        **current_config.get_info()
+    )
 
-    # Run app
-    app.run(host='0.0.0.0', port=5000, debug=True)
+    # Ensure upload folder exists
+    import os
+    os.makedirs(current_config.UPLOAD_FOLDER, exist_ok=True)
+
+    # Run application
+    app.run(
+        host='0.0.0.0',
+        port=5000,
+        debug=current_config.DEBUG
+    )

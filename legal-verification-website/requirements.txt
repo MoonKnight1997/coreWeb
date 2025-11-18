@@ -19,6 +19,10 @@ gunicorn==21.2.0
 
 # Security
 Flask-Talisman==1.1.0
+python-magic==0.4.27
 
-# Rate Limiting (Optional but recommended)
+# Rate Limiting
 Flask-Limiter==3.5.0
+
+# Logging
+structlog==24.1.0
