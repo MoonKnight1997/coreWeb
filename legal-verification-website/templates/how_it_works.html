@@ -3,130 +3,182 @@
 {% block title %}How It Works - Legal Verification Protocol{% endblock %}
 
 {% block content %}
-<!-- Page Header -->
-<section class="bg-primary text-white py-5">
+<!-- Hero Section -->
+<section class="hero hero-compact">
     <div class="container">
-        <h1 class="display-5 fw-bold"><i class="bi bi-question-circle"></i> How It Works</h1>
-        <p class="lead">Simple, fast, and comprehensive document verification in 4 easy steps</p>
+        <div class="hero-content">
+            <div class="hero-badge">
+                <svg class="icon" width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H8c0-2.21 1.79-4 4-4s4 1.79 4 4c0 .88-.36 1.68-.93 2.25z"/>
+                </svg>
+                Simple & Fast Process
+            </div>
+            <h1 class="hero-title">How It Works</h1>
+            <p class="hero-subtitle">
+                Get comprehensive document verification in 4 easy steps – from upload to actionable recommendations
+            </p>
+        </div>
     </div>
 </section>
 
-<!-- Steps Section -->
-<section class="py-5">
+<!-- Process Steps Timeline -->
+<section class="section">
     <div class="container">
-        <div class="row g-4">
+        <div class="timeline">
+
             <!-- Step 1 -->
-            <div class="col-md-6">
-                <div class="card border-primary h-100 shadow-sm">
-                    <div class="card-body p-4">
-                        <div class="d-flex align-items-center mb-3">
-                            <div class="step-number bg-primary text-white rounded-circle d-flex align-items-center justify-content-center me-3" style="width: 60px; height: 60px; font-size: 1.5rem; font-weight: bold;">
-                                1
-                            </div>
-                            <h3 class="mb-0">Upload Your Document</h3>
+            <div class="timeline-item">
+                <div class="timeline-marker timeline-marker-primary">
+                    <span class="timeline-number">1</span>
+                </div>
+                <div class="timeline-content">
+                    <div class="card card-interactive">
+                        <div class="card-header">
+                            <h3 class="card-title">
+                                <svg class="icon" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM14 13v4h-4v-4H7l5-5 5 5h-3z"/>
+                                </svg>
+                                Upload Your Document
+                            </h3>
                         </div>
-                        <p class="text-muted">
-                            Upload your draft document in Word (.docx), PDF, or plain text format. Alternatively, paste your text directly into the verification form.
-                        </p>
-                        <div class="alert alert-info mb-0">
-                            <strong>Supported formats:</strong> .docx, .doc, .pdf, .txt<br>
-                            <strong>Maximum size:</strong> 16MB
+                        <div class="card-body">
+                            <p class="text-secondary">
+                                Upload your draft document in Word (.docx), PDF, or plain text format. Alternatively, paste your text directly into the verification form.
+                            </p>
+                            <div class="alert alert-info">
+                                <strong>Supported formats:</strong> .docx, .doc, .pdf, .txt<br>
+                                <strong>Maximum size:</strong> 16MB
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
 
             <!-- Step 2 -->
-            <div class="col-md-6">
-                <div class="card border-success h-100 shadow-sm">
-                    <div class="card-body p-4">
-                        <div class="d-flex align-items-center mb-3">
-                            <div class="step-number bg-success text-white rounded-circle d-flex align-items-center justify-content-center me-3" style="width: 60px; height: 60px; font-size: 1.5rem; font-weight: bold;">
-                                2
-                            </div>
-                            <h3 class="mb-0">AI Analysis</h3>
+            <div class="timeline-item">
+                <div class="timeline-marker timeline-marker-success">
+                    <span class="timeline-number">2</span>
+                </div>
+                <div class="timeline-content">
+                    <div class="card card-interactive">
+                        <div class="card-header">
+                            <h3 class="card-title">
+                                <svg class="icon" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M9 11.75c-.69 0-1.25.56-1.25 1.25s.56 1.25 1.25 1.25 1.25-.56 1.25-1.25-.56-1.25-1.25-1.25zm6 0c-.69 0-1.25.56-1.25 1.25s.56 1.25 1.25 1.25 1.25-.56 1.25-1.25-.56-1.25-1.25-1.25zM12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8 0-.29.02-.58.05-.86 2.36-1.05 4.23-2.98 5.21-5.37C11.07 8.33 14.05 10 17.42 10c.78 0 1.53-.09 2.25-.26.21.71.33 1.47.33 2.26 0 4.41-3.59 8-8 8z"/>
+                                </svg>
+                                AI Analysis
+                            </h3>
                         </div>
-                        <p class="text-muted">
-                            Our AI agent analyzes your document against UK Employment Law standards, procedural rules (ET/EAT Rules 2024), and best practice guidelines.
-                        </p>
-                        <div class="alert alert-success mb-0">
-                            <strong>Analysis includes:</strong>
-                            <ul class="mb-0 mt-2">
-                                <li>Substantive law verification</li>
-                                <li>Procedural compliance check</li>
-                                <li>Pleading quality assessment</li>
-                                <li>Case law verification</li>
-                            </ul>
+                        <div class="card-body">
+                            <p class="text-secondary">
+                                Our AI agent analyzes your document against UK Employment Law standards, procedural rules (ET/EAT Rules 2024), and best practice guidelines.
+                            </p>
+                            <div class="alert alert-success">
+                                <strong>Analysis includes:</strong>
+                                <ul>
+                                    <li>Substantive law verification</li>
+                                    <li>Procedural compliance check</li>
+                                    <li>Pleading quality assessment</li>
+                                    <li>Case law verification</li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
 
             <!-- Step 3 -->
-            <div class="col-md-6">
-                <div class="card border-info h-100 shadow-sm">
-                    <div class="card-body p-4">
-                        <div class="d-flex align-items-center mb-3">
-                            <div class="step-number bg-info text-white rounded-circle d-flex align-items-center justify-content-center me-3" style="width: 60px; height: 60px; font-size: 1.5rem; font-weight: bold;">
-                                3
-                            </div>
-                            <h3 class="mb-0">Receive Report</h3>
+            <div class="timeline-item">
+                <div class="timeline-marker timeline-marker-info">
+                    <span class="timeline-number">3</span>
+                </div>
+                <div class="timeline-content">
+                    <div class="card card-interactive">
+                        <div class="card-header">
+                            <h3 class="card-title">
+                                <svg class="icon" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/>
+                                </svg>
+                                Receive Report
+                            </h3>
                         </div>
-                        <p class="text-muted">
-                            Get a detailed verification report with identified issues categorized by severity (Critical, Major, Minor) and actionable recommendations.
-                        </p>
-                        <div class="alert alert-info mb-0">
-                            <strong>Report sections:</strong>
-                            <ul class="mb-0 mt-2">
-                                <li>Executive summary</li>
-                                <li>Issues by category</li>
-                                <li>Recommendations</li>
-                                <li>Risk assessment</li>
-                            </ul>
+                        <div class="card-body">
+                            <p class="text-secondary">
+                                Get a detailed verification report with identified issues categorized by severity (Critical, Major, Minor) and actionable recommendations.
+                            </p>
+                            <div class="alert alert-info">
+                                <strong>Report sections:</strong>
+                                <ul>
+                                    <li>Executive summary</li>
+                                    <li>Issues by category</li>
+                                    <li>Recommendations</li>
+                                    <li>Risk assessment</li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
 
             <!-- Step 4 -->
-            <div class="col-md-6">
-                <div class="card border-warning h-100 shadow-sm">
-                    <div class="card-body p-4">
-                        <div class="d-flex align-items-center mb-3">
-                            <div class="step-number bg-warning text-dark rounded-circle d-flex align-items-center justify-content-center me-3" style="width: 60px; height: 60px; font-size: 1.5rem; font-weight: bold;">
-                                4
-                            </div>
-                            <h3 class="mb-0">Refine & Finalize</h3>
+            <div class="timeline-item">
+                <div class="timeline-marker timeline-marker-warning">
+                    <span class="timeline-number">4</span>
+                </div>
+                <div class="timeline-content">
+                    <div class="card card-interactive">
+                        <div class="card-header">
+                            <h3 class="card-title">
+                                <svg class="icon" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+                                </svg>
+                                Refine & Finalize
+                            </h3>
                         </div>
-                        <p class="text-muted">
-                            Use the verification report to improve your document. Address critical and major issues before filing. Seek qualified legal advice where needed.
-                        </p>
-                        <div class="alert alert-warning mb-0">
-                            <strong><i class="bi bi-exclamation-triangle"></i> Remember:</strong> This tool provides document analysis, not legal advice. Always consult a qualified solicitor or barrister for representation.
+                        <div class="card-body">
+                            <p class="text-secondary">
+                                Use the verification report to improve your document. Address critical and major issues before filing. Seek qualified legal advice where needed.
+                            </p>
+                            <div class="alert alert-warning">
+                                <div class="alert-header">
+                                    <svg class="alert-icon" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"/>
+                                    </svg>
+                                    <strong>Remember</strong>
+                                </div>
+                                <p>This tool provides document analysis, not legal advice. Always consult a qualified solicitor or barrister for representation.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
+
         </div>
     </div>
 </section>
 
 <!-- Typical Turnaround -->
-<section class="py-5 bg-light">
+<section class="section section-gray">
     <div class="container">
-        <h2 class="text-center mb-4"><i class="bi bi-clock"></i> Typical Turnaround</h2>
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card shadow-sm">
-                    <div class="card-body text-center p-5">
-                        <div class="mb-3">
-                            <i class="bi bi-lightning-charge text-warning" style="font-size: 4rem;"></i>
-                        </div>
-                        <h3 class="text-primary mb-3">Instant to 5 Minutes</h3>
-                        <p class="lead text-muted mb-0">
-                            Most documents are analyzed within 2-5 minutes. Complex documents with extensive case law may take slightly longer.
-                        </p>
+        <div class="section-header">
+            <svg class="section-icon" width="32" height="32" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/>
+            </svg>
+            <h2 class="section-title">Typical Turnaround</h2>
+        </div>
+
+        <div class="turnaround-card">
+            <div class="card card-highlight">
+                <div class="card-body text-center">
+                    <div class="turnaround-icon">
+                        <svg width="80" height="80" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M7 2v11h3v9l7-12h-4l4-8z"/>
+                        </svg>
                     </div>
+                    <h3 class="turnaround-time">Instant to 5 Minutes</h3>
+                    <p class="turnaround-description">
+                        Most documents are analyzed within 2-5 minutes. Complex documents with extensive case law may take slightly longer.
+                    </p>
                 </div>
             </div>
         </div>
@@ -134,120 +186,144 @@
 </section>
 
 <!-- Supported Documents -->
-<section class="py-5">
+<section class="section">
     <div class="container">
-        <h2 class="text-center mb-5">Supported Document Types</h2>
-        <div class="row g-4">
-            <div class="col-md-4">
-                <div class="card h-100 border-0 shadow-sm">
-                    <div class="card-body p-4">
-                        <h5 class="card-title text-primary">
-                            <i class="bi bi-file-earmark-text"></i> ET1 / ET3 Forms
-                        </h5>
-                        <p class="card-text text-muted">
-                            Employment Tribunal claim forms (ET1) and response forms (ET3) with verification of all mandatory sections and ACAS requirements.
-                        </p>
-                    </div>
+        <div class="section-header">
+            <h2 class="section-title">Supported Document Types</h2>
+            <p class="section-subtitle">
+                Comprehensive verification for all UK Employment Tribunal and EAT documents
+            </p>
+        </div>
+
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon feature-icon-primary">
+                    <svg width="32" height="32" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/>
+                    </svg>
                 </div>
+                <h3 class="feature-title">ET1 / ET3 Forms</h3>
+                <p class="feature-description">
+                    Employment Tribunal claim forms (ET1) and response forms (ET3) with verification of all mandatory sections and ACAS requirements.
+                </p>
             </div>
-            <div class="col-md-4">
-                <div class="card h-100 border-0 shadow-sm">
-                    <div class="card-body p-4">
-                        <h5 class="card-title text-success">
-                            <i class="bi bi-file-earmark-ruled"></i> Tribunal Submissions
-                        </h5>
-                        <p class="card-text text-muted">
-                            Written submissions, witness statements, skeleton arguments, and other tribunal documents with quality and compliance checks.
-                        </p>
-                    </div>
+
+            <div class="feature-card">
+                <div class="feature-icon feature-icon-success">
+                    <svg width="32" height="32" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M8 16h8v2H8zm0-4h8v2H8zm6-10H6c-1.1 0-2 .9-2 2v16c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm4 18H6V4h7v5h5v11z"/>
+                    </svg>
                 </div>
+                <h3 class="feature-title">Tribunal Submissions</h3>
+                <p class="feature-description">
+                    Written submissions, witness statements, skeleton arguments, and other tribunal documents with quality and compliance checks.
+                </p>
             </div>
-            <div class="col-md-4">
-                <div class="card h-100 border-0 shadow-sm">
-                    <div class="card-body p-4">
-                        <h5 class="card-title text-info">
-                            <i class="bi bi-file-earmark-arrow-up"></i> EAT Appeals
-                        </h5>
-                        <p class="card-text text-muted">
-                            Employment Appeal Tribunal grounds of appeal, skeleton arguments, and applications with permission requirements verification.
-                        </p>
-                    </div>
+
+            <div class="feature-card">
+                <div class="feature-icon feature-icon-info">
+                    <svg width="32" height="32" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M9 16h6v-6h4l-7-7-7 7h4zm-4 2h14v2H5z"/>
+                    </svg>
                 </div>
+                <h3 class="feature-title">EAT Appeals</h3>
+                <p class="feature-description">
+                    Employment Appeal Tribunal grounds of appeal, skeleton arguments, and applications with permission requirements verification.
+                </p>
             </div>
-            <div class="col-md-4">
-                <div class="card h-100 border-0 shadow-sm">
-                    <div class="card-body p-4">
-                        <h5 class="card-title text-warning">
-                            <i class="bi bi-file-earmark-check"></i> Applications
-                        </h5>
-                        <p class="card-text text-muted">
-                            Amendment applications, reconsideration applications, and case management applications with proper basis verification.
-                        </p>
-                    </div>
+
+            <div class="feature-card">
+                <div class="feature-icon feature-icon-warning">
+                    <svg width="32" height="32" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+                    </svg>
                 </div>
+                <h3 class="feature-title">Applications</h3>
+                <p class="feature-description">
+                    Amendment applications, reconsideration applications, and case management applications with proper basis verification.
+                </p>
             </div>
-            <div class="col-md-4">
-                <div class="card h-100 border-0 shadow-sm">
-                    <div class="card-body p-4">
-                        <h5 class="card-title text-danger">
-                            <i class="bi bi-file-earmark-medical"></i> Written Reasons
-                        </h5>
-                        <p class="card-text text-muted">
-                            Responses to tribunal written reasons and requests for clarification with procedural compliance checks.
-                        </p>
-                    </div>
+
+            <div class="feature-card">
+                <div class="feature-icon feature-icon-error">
+                    <svg width="32" height="32" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/>
+                    </svg>
                 </div>
+                <h3 class="feature-title">Written Reasons</h3>
+                <p class="feature-description">
+                    Responses to tribunal written reasons and requests for clarification with procedural compliance checks.
+                </p>
             </div>
-            <div class="col-md-4">
-                <div class="card h-100 border-0 shadow-sm">
-                    <div class="card-body p-4">
-                        <h5 class="card-title text-secondary">
-                            <i class="bi bi-file-earmark-plus"></i> Other Documents
-                        </h5>
-                        <p class="card-text text-muted">
-                            General employment law documents, legal submissions, and drafts requiring quality assurance and verification.
-                        </p>
-                    </div>
+
+            <div class="feature-card">
+                <div class="feature-icon feature-icon-secondary">
+                    <svg width="32" height="32" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h7l5-5V4c0-1.1-.9-2-2-2zm4 15h-4v4H6V4h8v5h4v8z"/>
+                    </svg>
                 </div>
+                <h3 class="feature-title">Other Documents</h3>
+                <p class="feature-description">
+                    General employment law documents, legal submissions, and drafts requiring quality assurance and verification.
+                </p>
             </div>
         </div>
     </div>
 </section>
 
-<!-- What We Don't Do -->
-<section class="py-5 bg-light">
+<!-- Limitations Section -->
+<section class="section section-gray">
     <div class="container">
-        <h2 class="text-center mb-5">What This Tool Does NOT Do</h2>
-        <div class="row justify-content-center">
-            <div class="col-md-10">
-                <div class="alert alert-danger">
-                    <h5 class="alert-heading"><i class="bi bi-x-circle"></i> Important Limitations</h5>
-                    <ul class="mb-0">
-                        <li><strong>Not legal advice:</strong> This tool does not provide legal advice or strategy guidance</li>
-                        <li><strong>Not representation:</strong> Does not create a solicitor-client relationship or provide legal representation</li>
-                        <li><strong>Not a substitute:</strong> Cannot replace qualified legal professionals regulated by SRA/BSB</li>
-                        <li><strong>Not guaranteed:</strong> AI analysis may contain errors; no guarantee of outcomes</li>
-                        <li><strong>Not regulated:</strong> This is an educational tool, not a regulated legal service</li>
-                        <li><strong>Not deadline management:</strong> You remain responsible for all deadlines and filings</li>
-                    </ul>
+        <div class="section-header">
+            <h2 class="section-title">What This Tool Does NOT Do</h2>
+            <p class="section-subtitle">
+                Understanding the limitations ensures appropriate use of this verification tool
+            </p>
+        </div>
+
+        <div class="limitations-wrapper">
+            <div class="alert alert-error" role="alert">
+                <div class="alert-header">
+                    <svg class="alert-icon" width="32" height="32" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/>
+                    </svg>
+                    <h3 class="alert-title">Important Limitations</h3>
                 </div>
+                <ul class="limitations-list">
+                    <li><strong>Not legal advice:</strong> This tool does not provide legal advice or strategy guidance</li>
+                    <li><strong>Not representation:</strong> Does not create a solicitor-client relationship or provide legal representation</li>
+                    <li><strong>Not a substitute:</strong> Cannot replace qualified legal professionals regulated by SRA/BSB</li>
+                    <li><strong>Not guaranteed:</strong> AI analysis may contain errors; no guarantee of outcomes</li>
+                    <li><strong>Not regulated:</strong> This is an educational tool, not a regulated legal service</li>
+                    <li><strong>Not deadline management:</strong> You remain responsible for all deadlines and filings</li>
+                </ul>
             </div>
         </div>
     </div>
 </section>
 
-<!-- CTA -->
-<section class="py-5">
-    <div class="container text-center">
-        <h2 class="mb-4">Ready to Get Started?</h2>
-        <p class="lead text-muted mb-4">Upload your document now and receive instant verification</p>
-        <div class="d-grid gap-2 d-md-flex justify-content-md-center">
-            <a href="{{ url_for('verify') }}" class="btn btn-primary btn-lg px-5">
-                <i class="bi bi-upload"></i> Verify Your Document
-            </a>
-            <a href="{{ url_for('legal') }}" class="btn btn-outline-secondary btn-lg px-5">
-                <i class="bi bi-info-circle"></i> Read Legal Terms
-            </a>
+<!-- CTA Section -->
+<section class="cta-section">
+    <div class="container">
+        <div class="cta-content">
+            <h2 class="cta-title">Ready to Get Started?</h2>
+            <p class="cta-description">
+                Upload your document now and receive instant verification against UK Employment Law standards
+            </p>
+            <div class="cta-actions">
+                <a href="{{ url_for('verify') }}" class="btn btn-primary btn-lg">
+                    <svg class="icon" width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM14 13v4h-4v-4H7l5-5 5 5h-3z"/>
+                    </svg>
+                    Verify Your Document
+                </a>
+                <a href="{{ url_for('legal') }}" class="btn btn-outline btn-lg">
+                    <svg class="icon" width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/>
+                    </svg>
+                    Read Legal Terms
+                </a>
+            </div>
         </div>
     </div>
 </section>

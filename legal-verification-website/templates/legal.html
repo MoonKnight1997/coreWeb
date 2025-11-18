@@ -3,275 +3,407 @@
 {% block title %}Legal & Compliance - Legal Verification Protocol{% endblock %}
 
 {% block content %}
-<!-- Page Header -->
-<section class="bg-primary text-white py-5">
+<!-- Hero Section -->
+<section class="hero hero-compact">
     <div class="container">
-        <h1 class="display-5 fw-bold"><i class="bi bi-shield-exclamation"></i> Legal & Compliance</h1>
-        <p class="lead">Terms of use, disclaimers, and privacy information</p>
+        <div class="hero-content">
+            <div class="hero-badge">
+                <svg class="icon" width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/>
+                </svg>
+                Required Reading
+            </div>
+            <h1 class="hero-title">Legal & Compliance</h1>
+            <p class="hero-subtitle">
+                Terms of use, disclaimers, and privacy information for the Legal Verification Protocol
+            </p>
+        </div>
     </div>
 </section>
 
-<!-- Disclaimer Section -->
-<section class="py-5">
+<!-- Mandatory Disclaimer -->
+<section class="section">
     <div class="container">
-        <div class="alert alert-danger border-danger shadow">
-            <h3 class="alert-heading"><i class="bi bi-exclamation-triangle-fill"></i> MANDATORY LEGAL DISCLAIMER</h3>
-            <p class="lead">
-                <strong>READ THIS CAREFULLY BEFORE USING THIS TOOL</strong>
-            </p>
-            <hr>
-            <p class="mb-0">
-                By using this service, you acknowledge that you have read, understood, and agree to all terms and disclaimers on this page.
-            </p>
-        </div>
-
-        <!-- What This Service Is NOT -->
-        <div class="card mb-4 border-danger">
-            <div class="card-header bg-danger text-white">
-                <h4 class="mb-0"><i class="bi bi-x-circle"></i> What This Service Is NOT</h4>
-            </div>
-            <div class="card-body">
-                <div class="row">
-                    <div class="col-md-6">
-                        <h5 class="text-danger">Not Regulated Legal Services</h5>
-                        <ul>
-                            <li>This tool is <strong>NOT regulated by the Solicitors Regulation Authority (SRA)</strong></li>
-                            <li>This tool is <strong>NOT regulated by the Bar Standards Board (BSB)</strong></li>
-                            <li>This is <strong>NOT a solicitor's practice</strong></li>
-                            <li>This is <strong>NOT a barristers' chambers</strong></li>
-                            <li>No regulated legal professionals are providing services through this tool</li>
-                        </ul>
-                    </div>
-                    <div class="col-md-6">
-                        <h5 class="text-danger">Not Legal Advice or Representation</h5>
-                        <ul>
-                            <li>This tool does <strong>NOT provide legal advice</strong></li>
-                            <li>This tool does <strong>NOT provide legal representation</strong></li>
-                            <li>This tool does <strong>NOT create a solicitor-client relationship</strong></li>
-                            <li>This tool does <strong>NOT create a barrister-client relationship</strong></li>
-                            <li>No privilege or confidentiality is created</li>
-                        </ul>
-                    </div>
+        <div class="legal-notice-primary">
+            <div class="alert alert-error" role="alert">
+                <div class="alert-header">
+                    <svg class="alert-icon" width="32" height="32" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"/>
+                    </svg>
+                    <h2 class="alert-title">MANDATORY LEGAL DISCLAIMER</h2>
                 </div>
-            </div>
-        </div>
-
-        <!-- What This Service IS -->
-        <div class="card mb-4 border-success">
-            <div class="card-header bg-success text-white">
-                <h4 class="mb-0"><i class="bi bi-check-circle"></i> What This Service IS</h4>
-            </div>
-            <div class="card-body">
-                <h5 class="text-success">Educational Document Verification Tool</h5>
-                <p>This is an <strong>educational and informational tool only</strong> that provides:</p>
-                <ul>
-                    <li><strong>Document review:</strong> AI-assisted analysis of document structure and content</li>
-                    <li><strong>Quality checks:</strong> Identification of potential issues in reasoning, authorities, and procedure</li>
-                    <li><strong>Educational feedback:</strong> Information about relevant legal standards and best practices</li>
-                    <li><strong>Self-help support:</strong> Assistance in improving document quality before seeking professional advice</li>
-                </ul>
-                <div class="alert alert-info">
-                    <strong><i class="bi bi-info-circle"></i> Think of this tool as:</strong> A spell-checker or grammar-checker for legal documents - it identifies potential issues but does not provide legal advice or strategy.
-                </div>
-            </div>
-        </div>
-
-        <!-- Jurisdiction -->
-        <div class="card mb-4 border-primary">
-            <div class="card-header bg-primary text-white">
-                <h4 class="mb-0"><i class="bi bi-geo-alt"></i> Jurisdiction & Scope</h4>
-            </div>
-            <div class="card-body">
-                <h5>England & Wales Only</h5>
-                <p>This tool is designed specifically for:</p>
-                <ul>
-                    <li><strong>England & Wales:</strong> Employment Tribunal and Employment Appeal Tribunal matters</li>
-                    <li><strong>UK Employment Law:</strong> As applicable in England & Wales</li>
-                </ul>
-                <div class="alert alert-warning">
-                    <strong><i class="bi bi-exclamation-triangle"></i> Not for Scotland or Northern Ireland:</strong>
-                    <p class="mb-0">This tool is NOT intended for use with Scottish or Northern Irish employment law matters unless explicitly stated. Different rules, procedures, and jurisdictions apply.</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Liability Limitation -->
-        <div class="card mb-4 border-warning">
-            <div class="card-header bg-warning">
-                <h4 class="mb-0"><i class="bi bi-shield-exclamation"></i> Limitation of Liability</h4>
-            </div>
-            <div class="card-body">
-                <h5>No Guarantee of Accuracy or Outcome</h5>
-                <div class="alert alert-danger">
-                    <strong>CRITICAL NOTICE:</strong>
-                    <ul class="mb-0">
-                        <li><strong>No guarantee of accuracy:</strong> AI analysis may contain errors, omissions, or inaccuracies</li>
-                        <li><strong>No guarantee of outcome:</strong> Using this tool does not guarantee success in legal proceedings</li>
-                        <li><strong>Experimental technology:</strong> This tool uses AI which is inherently experimental and may produce unexpected results</li>
-                        <li><strong>No liability for losses:</strong> We accept no liability for any loss, damage, or adverse outcome arising from use of this tool</li>
-                    </ul>
-                </div>
-
-                <h5 class="mt-4">Your Responsibilities</h5>
-                <p>By using this tool, you acknowledge that:</p>
-                <ul>
-                    <li>You remain <strong>fully responsible for all deadlines and filing requirements</strong></li>
-                    <li>You remain <strong>responsible for the accuracy and completeness of all documents</strong></li>
-                    <li>You remain <strong>responsible for seeking qualified legal representation</strong></li>
-                    <li>You <strong>should not rely solely on this tool</strong> for legal proceedings</li>
-                    <li>You accept <strong>all risks associated with using this tool</strong></li>
-                </ul>
-
-                <div class="alert alert-warning">
-                    <strong><i class="bi bi-person-check"></i> Essential Recommendation:</strong>
-                    <p class="mb-0">
-                        <strong>ALWAYS seek qualified legal advice from a regulated solicitor or barrister</strong> before filing documents with the Employment Tribunal or Employment Appeal Tribunal.
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Data & Privacy -->
-        <div class="card mb-4 border-info" id="privacy">
-            <div class="card-header bg-info text-white">
-                <h4 class="mb-0"><i class="bi bi-lock"></i> Data Protection & Privacy</h4>
-            </div>
-            <div class="card-body">
-                <h5>UK GDPR Compliance</h5>
-                <p>We are committed to protecting your privacy and complying with UK GDPR requirements.</p>
-
-                <h6 class="mt-3">How We Process Your Documents</h6>
-                <ul>
-                    <li><strong>Upload processing:</strong> Documents are temporarily stored only for the duration of analysis</li>
-                    <li><strong>AI processing:</strong> Document text is sent to Anthropic's Claude API for analysis</li>
-                    <li><strong>No long-term storage:</strong> We do not permanently store your documents or their contents</li>
-                    <li><strong>Automatic deletion:</strong> Temporary files are automatically deleted after processing</li>
-                    <li><strong>No user accounts:</strong> We do not collect or store personal account information</li>
-                </ul>
-
-                <h6 class="mt-3">What Data We Collect</h6>
-                <ul>
-                    <li><strong>Document contents:</strong> Temporarily during verification process only</li>
-                    <li><strong>Technical logs:</strong> Basic server logs for security and performance (anonymized)</li>
-                    <li><strong>Cookies:</strong> Essential cookies only for session management</li>
-                </ul>
-
-                <h6 class="mt-3">Third-Party Processing</h6>
-                <div class="alert alert-info">
-                    <strong><i class="bi bi-cloud"></i> Anthropic Claude API:</strong>
-                    <p class="mb-0">
-                        Document text is sent to Anthropic's Claude API for AI analysis. Anthropic's privacy policy applies to their processing.
-                        See: <a href="https://www.anthropic.com/privacy" target="_blank" class="alert-link">Anthropic Privacy Policy</a>
-                    </p>
-                </div>
-
-                <h6 class="mt-3">Your Data Rights</h6>
-                <p>Under UK GDPR, you have rights to:</p>
-                <ul>
-                    <li>Access your personal data (if any is collected)</li>
-                    <li>Request deletion of your data</li>
-                    <li>Object to processing</li>
-                    <li>Lodge a complaint with the ICO</li>
-                </ul>
-
-                <h6 class="mt-3">Important Security Notice</h6>
-                <div class="alert alert-warning">
-                    <strong><i class="bi bi-exclamation-triangle"></i> Confidential Information:</strong>
-                    <ul class="mb-0">
-                        <li>Do <strong>NOT</strong> upload documents containing highly sensitive personal data without proper anonymization</li>
-                        <li>Do <strong>NOT</strong> upload third-party confidential documents without consent</li>
-                        <li>Consider redacting sensitive information before upload</li>
-                        <li>This tool does <strong>NOT</strong> provide privilege or legal confidentiality</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <!-- Cookies -->
-        <div class="card mb-4 border-secondary">
-            <div class="card-header bg-secondary text-white">
-                <h4 class="mb-0"><i class="bi bi-cookie"></i> Cookie Policy</h4>
-            </div>
-            <div class="card-body">
-                <h5>Essential Cookies Only</h5>
-                <p>This website uses only essential cookies required for basic functionality:</p>
-                <ul>
-                    <li><strong>Session cookies:</strong> To maintain your verification session</li>
-                    <li><strong>Security cookies:</strong> To prevent CSRF attacks</li>
-                </ul>
-                <p class="mb-0">
-                    We do <strong>NOT</strong> use tracking cookies, analytics cookies, or advertising cookies.
+                <p class="legal-notice-lead">
+                    <strong>READ THIS CAREFULLY BEFORE USING THIS TOOL</strong>
                 </p>
-            </div>
-        </div>
-
-        <!-- Terms of Use -->
-        <div class="card mb-4 border-dark">
-            <div class="card-header bg-dark text-white">
-                <h4 class="mb-0"><i class="bi bi-file-text"></i> Terms of Use</h4>
-            </div>
-            <div class="card-body">
-                <h5>Acceptable Use</h5>
-                <p>By using this service, you agree to:</p>
-                <ul>
-                    <li>Use the tool for <strong>lawful purposes only</strong></li>
-                    <li>Not upload malicious content, viruses, or harmful code</li>
-                    <li>Not attempt to reverse engineer, hack, or compromise the service</li>
-                    <li>Not use the tool to infringe intellectual property rights</li>
-                    <li>Accept all terms and limitations described on this page</li>
-                </ul>
-
-                <h5 class="mt-3">Intellectual Property</h5>
+                <hr class="alert-divider">
                 <p>
-                    The verification reports generated by this tool are provided to you for your personal use in relation to your legal matters.
-                    The underlying software, algorithms, and AI models remain the property of their respective owners.
+                    By using this service, you acknowledge that you have read, understood, and agree to all terms and disclaimers on this page.
                 </p>
+            </div>
+        </div>
 
-                <h5 class="mt-3">Service Availability</h5>
-                <div class="alert alert-secondary">
-                    <p class="mb-0">
-                        This service is provided "as is" without warranties of any kind. We do not guarantee uninterrupted availability
-                        and reserve the right to modify or discontinue the service at any time.
-                    </p>
+        <!-- Accordion Sections -->
+        <div class="legal-accordion">
+
+            <!-- What This Service Is NOT -->
+            <div class="accordion-item">
+                <button type="button" class="accordion-header" aria-expanded="true" data-accordion-target="not-is">
+                    <svg class="accordion-icon" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/>
+                    </svg>
+                    <h3 class="accordion-title">What This Service Is NOT</h3>
+                    <svg class="accordion-chevron" width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/>
+                    </svg>
+                </button>
+                <div class="accordion-content" id="not-is">
+                    <div class="card card-error">
+                        <div class="card-body">
+                            <div class="legal-grid">
+                                <div class="legal-section">
+                                    <h4 class="legal-section-title">Not Regulated Legal Services</h4>
+                                    <ul class="legal-list">
+                                        <li>This tool is <strong>NOT regulated by the Solicitors Regulation Authority (SRA)</strong></li>
+                                        <li>This tool is <strong>NOT regulated by the Bar Standards Board (BSB)</strong></li>
+                                        <li>This is <strong>NOT a solicitor's practice</strong></li>
+                                        <li>This is <strong>NOT a barristers' chambers</strong></li>
+                                        <li>No regulated legal professionals are providing services through this tool</li>
+                                    </ul>
+                                </div>
+                                <div class="legal-section">
+                                    <h4 class="legal-section-title">Not Legal Advice or Representation</h4>
+                                    <ul class="legal-list">
+                                        <li>This tool does <strong>NOT provide legal advice</strong></li>
+                                        <li>This tool does <strong>NOT provide legal representation</strong></li>
+                                        <li>This tool does <strong>NOT create a solicitor-client relationship</strong></li>
+                                        <li>This tool does <strong>NOT create a barrister-client relationship</strong></li>
+                                        <li>No privilege or confidentiality is created</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <!-- Contact -->
-        <div class="card border-primary">
-            <div class="card-header bg-primary text-white">
-                <h4 class="mb-0"><i class="bi bi-envelope"></i> Questions or Concerns?</h4>
+            <!-- What This Service IS -->
+            <div class="accordion-item">
+                <button type="button" class="accordion-header" aria-expanded="false" data-accordion-target="what-is">
+                    <svg class="accordion-icon" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                    </svg>
+                    <h3 class="accordion-title">What This Service IS</h3>
+                    <svg class="accordion-chevron" width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/>
+                    </svg>
+                </button>
+                <div class="accordion-content" id="what-is" style="display: none;">
+                    <div class="card card-success">
+                        <div class="card-body">
+                            <h4 class="legal-section-title">Educational Document Verification Tool</h4>
+                            <p>This is an <strong>educational and informational tool only</strong> that provides:</p>
+                            <ul class="legal-list">
+                                <li><strong>Document review:</strong> AI-assisted analysis of document structure and content</li>
+                                <li><strong>Quality checks:</strong> Identification of potential issues in reasoning, authorities, and procedure</li>
+                                <li><strong>Educational feedback:</strong> Information about relevant legal standards and best practices</li>
+                                <li><strong>Self-help support:</strong> Assistance in improving document quality before seeking professional advice</li>
+                            </ul>
+                            <div class="alert alert-info">
+                                <div class="alert-header">
+                                    <svg class="alert-icon" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/>
+                                    </svg>
+                                    <strong>Think of this tool as:</strong>
+                                </div>
+                                <p>A spell-checker or grammar-checker for legal documents - it identifies potential issues but does not provide legal advice or strategy.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="card-body">
-                <p>
-                    If you have questions about these terms, our data processing practices, or wish to exercise your data rights,
-                    please refer to the Support page for contact information.
-                </p>
-                <a href="{{ url_for('support') }}" class="btn btn-primary">
-                    <i class="bi bi-question-circle"></i> Visit Support Page
-                </a>
-            </div>
-        </div>
 
+            <!-- Jurisdiction & Scope -->
+            <div class="accordion-item">
+                <button type="button" class="accordion-header" aria-expanded="false" data-accordion-target="jurisdiction">
+                    <svg class="accordion-icon" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                    </svg>
+                    <h3 class="accordion-title">Jurisdiction & Scope</h3>
+                    <svg class="accordion-chevron" width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/>
+                    </svg>
+                </button>
+                <div class="accordion-content" id="jurisdiction" style="display: none;">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="legal-section-title">England & Wales Only</h4>
+                            <p>This tool is designed specifically for:</p>
+                            <ul class="legal-list">
+                                <li><strong>England & Wales:</strong> Employment Tribunal and Employment Appeal Tribunal matters</li>
+                                <li><strong>UK Employment Law:</strong> As applicable in England & Wales</li>
+                            </ul>
+                            <div class="alert alert-warning">
+                                <div class="alert-header">
+                                    <svg class="alert-icon" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"/>
+                                    </svg>
+                                    <strong>Not for Scotland or Northern Ireland</strong>
+                                </div>
+                                <p>This tool is NOT intended for use with Scottish or Northern Irish employment law matters unless explicitly stated. Different rules, procedures, and jurisdictions apply.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Limitation of Liability -->
+            <div class="accordion-item">
+                <button type="button" class="accordion-header" aria-expanded="false" data-accordion-target="liability">
+                    <svg class="accordion-icon" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/>
+                    </svg>
+                    <h3 class="accordion-title">Limitation of Liability</h3>
+                    <svg class="accordion-chevron" width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/>
+                    </svg>
+                </button>
+                <div class="accordion-content" id="liability" style="display: none;">
+                    <div class="card card-warning">
+                        <div class="card-body">
+                            <h4 class="legal-section-title">No Guarantee of Accuracy or Outcome</h4>
+                            <div class="alert alert-error">
+                                <strong>CRITICAL NOTICE:</strong>
+                                <ul>
+                                    <li><strong>No guarantee of accuracy:</strong> AI analysis may contain errors, omissions, or inaccuracies</li>
+                                    <li><strong>No guarantee of outcome:</strong> Using this tool does not guarantee success in legal proceedings</li>
+                                    <li><strong>Experimental technology:</strong> This tool uses AI which is inherently experimental and may produce unexpected results</li>
+                                    <li><strong>No liability for losses:</strong> We accept no liability for any loss, damage, or adverse outcome arising from use of this tool</li>
+                                </ul>
+                            </div>
+
+                            <h4 class="legal-section-title">Your Responsibilities</h4>
+                            <p>By using this tool, you acknowledge that:</p>
+                            <ul class="legal-list">
+                                <li>You remain <strong>fully responsible for all deadlines and filing requirements</strong></li>
+                                <li>You remain <strong>responsible for the accuracy and completeness of all documents</strong></li>
+                                <li>You remain <strong>responsible for seeking qualified legal representation</strong></li>
+                                <li>You <strong>should not rely solely on this tool</strong> for legal proceedings</li>
+                                <li>You accept <strong>all risks associated with using this tool</strong></li>
+                            </ul>
+
+                            <div class="alert alert-warning">
+                                <div class="alert-header">
+                                    <svg class="alert-icon" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+                                    </svg>
+                                    <strong>Essential Recommendation</strong>
+                                </div>
+                                <p>
+                                    <strong>ALWAYS seek qualified legal advice from a regulated solicitor or barrister</strong> before filing documents with the Employment Tribunal or Employment Appeal Tribunal.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Data Protection & Privacy -->
+            <div class="accordion-item">
+                <button type="button" class="accordion-header" aria-expanded="false" data-accordion-target="privacy">
+                    <svg class="accordion-icon" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/>
+                    </svg>
+                    <h3 class="accordion-title">Data Protection & Privacy</h3>
+                    <svg class="accordion-chevron" width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/>
+                    </svg>
+                </button>
+                <div class="accordion-content" id="privacy" style="display: none;">
+                    <div class="card card-info">
+                        <div class="card-body">
+                            <h4 class="legal-section-title">UK GDPR Compliance</h4>
+                            <p>We are committed to protecting your privacy and complying with UK GDPR requirements.</p>
+
+                            <h5 class="legal-subsection-title">How We Process Your Documents</h5>
+                            <ul class="legal-list">
+                                <li><strong>Upload processing:</strong> Documents are temporarily stored only for the duration of analysis</li>
+                                <li><strong>AI processing:</strong> Document text is sent to Anthropic's Claude API for analysis</li>
+                                <li><strong>No long-term storage:</strong> We do not permanently store your documents or their contents</li>
+                                <li><strong>Automatic deletion:</strong> Temporary files are automatically deleted after processing</li>
+                                <li><strong>No user accounts:</strong> We do not collect or store personal account information</li>
+                            </ul>
+
+                            <h5 class="legal-subsection-title">What Data We Collect</h5>
+                            <ul class="legal-list">
+                                <li><strong>Document contents:</strong> Temporarily during verification process only</li>
+                                <li><strong>Technical logs:</strong> Basic server logs for security and performance (anonymized)</li>
+                                <li><strong>Cookies:</strong> Essential cookies only for session management</li>
+                            </ul>
+
+                            <h5 class="legal-subsection-title">Third-Party Processing</h5>
+                            <div class="alert alert-info">
+                                <div class="alert-header">
+                                    <svg class="alert-icon" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM14 13v4h-4v-4H7l5-5 5 5h-3z"/>
+                                    </svg>
+                                    <strong>Anthropic Claude API</strong>
+                                </div>
+                                <p>
+                                    Document text is sent to Anthropic's Claude API for AI analysis. Anthropic's privacy policy applies to their processing.
+                                    See: <a href="https://www.anthropic.com/privacy" target="_blank" rel="noopener" class="alert-link">Anthropic Privacy Policy</a>
+                                </p>
+                            </div>
+
+                            <h5 class="legal-subsection-title">Your Data Rights</h5>
+                            <p>Under UK GDPR, you have rights to:</p>
+                            <ul class="legal-list">
+                                <li>Access your personal data (if any is collected)</li>
+                                <li>Request deletion of your data</li>
+                                <li>Object to processing</li>
+                                <li>Lodge a complaint with the ICO</li>
+                            </ul>
+
+                            <h5 class="legal-subsection-title">Important Security Notice</h5>
+                            <div class="alert alert-warning">
+                                <div class="alert-header">
+                                    <svg class="alert-icon" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"/>
+                                    </svg>
+                                    <strong>Confidential Information</strong>
+                                </div>
+                                <ul>
+                                    <li>Do <strong>NOT</strong> upload documents containing highly sensitive personal data without proper anonymization</li>
+                                    <li>Do <strong>NOT</strong> upload third-party confidential documents without consent</li>
+                                    <li>Consider redacting sensitive information before upload</li>
+                                    <li>This tool does <strong>NOT</strong> provide privilege or legal confidentiality</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cookie Policy -->
+            <div class="accordion-item">
+                <button type="button" class="accordion-header" aria-expanded="false" data-accordion-target="cookies">
+                    <svg class="accordion-icon" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M21.95 10.99c-1.79-.03-3.7-1.95-2.68-4.22-2.98 1-5.77-1.59-5.19-4.56C6.95.71 2 6.58 2 12c0 5.52 4.48 10 10 10 5.89 0 10.54-5.08 9.95-11.01zM8.5 15c-.83 0-1.5-.67-1.5-1.5S7.67 12 8.5 12s1.5.67 1.5 1.5S9.33 15 8.5 15zm2-5C9.67 10 9 9.33 9 8.5S9.67 7 10.5 7s1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm4.5 6c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1z"/>
+                    </svg>
+                    <h3 class="accordion-title">Cookie Policy</h3>
+                    <svg class="accordion-chevron" width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/>
+                    </svg>
+                </button>
+                <div class="accordion-content" id="cookies" style="display: none;">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="legal-section-title">Essential Cookies Only</h4>
+                            <p>This website uses only essential cookies required for basic functionality:</p>
+                            <ul class="legal-list">
+                                <li><strong>Session cookies:</strong> To maintain your verification session</li>
+                                <li><strong>Security cookies:</strong> To prevent CSRF attacks</li>
+                            </ul>
+                            <p>
+                                We do <strong>NOT</strong> use tracking cookies, analytics cookies, or advertising cookies.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Terms of Use -->
+            <div class="accordion-item">
+                <button type="button" class="accordion-header" aria-expanded="false" data-accordion-target="terms">
+                    <svg class="accordion-icon" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/>
+                    </svg>
+                    <h3 class="accordion-title">Terms of Use</h3>
+                    <svg class="accordion-chevron" width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/>
+                    </svg>
+                </button>
+                <div class="accordion-content" id="terms" style="display: none;">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="legal-section-title">Acceptable Use</h4>
+                            <p>By using this service, you agree to:</p>
+                            <ul class="legal-list">
+                                <li>Use the tool for <strong>lawful purposes only</strong></li>
+                                <li>Not upload malicious content, viruses, or harmful code</li>
+                                <li>Not attempt to reverse engineer, hack, or compromise the service</li>
+                                <li>Not use the tool to infringe intellectual property rights</li>
+                                <li>Accept all terms and limitations described on this page</li>
+                            </ul>
+
+                            <h5 class="legal-subsection-title">Intellectual Property</h5>
+                            <p>
+                                The verification reports generated by this tool are provided to you for your personal use in relation to your legal matters.
+                                The underlying software, algorithms, and AI models remain the property of their respective owners.
+                            </p>
+
+                            <h5 class="legal-subsection-title">Service Availability</h5>
+                            <div class="alert alert-secondary">
+                                <p>
+                                    This service is provided "as is" without warranties of any kind. We do not guarantee uninterrupted availability
+                                    and reserve the right to modify or discontinue the service at any time.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact -->
+            <div class="accordion-item">
+                <button type="button" class="accordion-header" aria-expanded="false" data-accordion-target="contact">
+                    <svg class="accordion-icon" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                    </svg>
+                    <h3 class="accordion-title">Questions or Concerns?</h3>
+                    <svg class="accordion-chevron" width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/>
+                    </svg>
+                </button>
+                <div class="accordion-content" id="contact" style="display: none;">
+                    <div class="card card-highlight">
+                        <div class="card-body">
+                            <p>
+                                If you have questions about these terms, our data processing practices, or wish to exercise your data rights,
+                                please refer to the Support page for contact information.
+                            </p>
+                            <a href="{{ url_for('support') }}" class="btn btn-primary">
+                                <svg class="icon" width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H8c0-2.21 1.79-4 4-4s4 1.79 4 4c0 .88-.36 1.68-.93 2.25z"/>
+                                </svg>
+                                Visit Support Page
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
     </div>
 </section>
 
 <!-- Final Acknowledgment -->
-<section class="py-5 bg-light">
+<section class="section section-gray">
     <div class="container">
-        <div class="alert alert-danger border-danger shadow-lg text-center">
-            <h4 class="alert-heading">IMPORTANT FINAL NOTICE</h4>
-            <p class="lead">
-                <strong>This tool does NOT replace qualified legal advice.</strong>
-            </p>
-            <p>
-                Employment Tribunal and Employment Appeal Tribunal proceedings are complex legal matters with
-                significant consequences. <strong>You MUST seek advice from a qualified, regulated solicitor or barrister.</strong>
-            </p>
-            <hr>
-            <p class="mb-0">
-                <strong>By using this tool, you confirm that you understand and accept all disclaimers and limitations stated on this page.</strong>
-            </p>
+        <div class="legal-notice-final">
+            <div class="alert alert-error text-center" role="alert">
+                <h3 class="legal-final-heading">IMPORTANT FINAL NOTICE</h3>
+                <p class="legal-final-lead">
+                    <strong>This tool does NOT replace qualified legal advice.</strong>
+                </p>
+                <p class="legal-final-text">
+                    Employment Tribunal and Employment Appeal Tribunal proceedings are complex legal matters with
+                    significant consequences. <strong>You MUST seek advice from a qualified, regulated solicitor or barrister.</strong>
+                </p>
+                <hr class="alert-divider">
+                <p class="legal-final-acknowledgment">
+                    <strong>By using this tool, you confirm that you understand and accept all disclaimers and limitations stated on this page.</strong>
+                </p>
+            </div>
         </div>
     </div>
 </section>
