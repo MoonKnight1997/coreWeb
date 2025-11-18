@@ -2,38 +2,56 @@
 
 {% block title %}Legal Verification Protocol - UK Employment Law Document Verification{% endblock %}
 
+{% block description %}Professional AI-assisted verification for Employment Tribunal (ET) and Employment Appeal Tribunal (EAT) documents. Comprehensive quality assurance against UK Employment Law standards.{% endblock %}
+
 {% block content %}
 <!-- Hero Section -->
-<section class="hero-section bg-primary text-white py-5">
-    <div class="container py-5">
-        <div class="row align-items-center">
-            <div class="col-lg-7">
-                <h1 class="display-4 fw-bold mb-4">
-                    Legal Verification Protocol
-                </h1>
-                <p class="lead mb-4">
-                    AI-assisted verification of Employment Tribunal and EAT documents
-                </p>
-                <div class="alert alert-light mb-4">
-                    <i class="bi bi-info-circle"></i>
-                    <strong>What it does:</strong> Structured verification of draft ET/EAT documents against substantive law, procedural rules, and drafting standards.
-                </div>
-                <div class="alert alert-light mb-4">
-                    <i class="bi bi-people"></i>
-                    <strong>Who it's for:</strong> Individuals, advisors, and representatives wanting a quality check before filing.
-                </div>
-                <div class="d-grid gap-2 d-md-flex">
-                    <a href="{{ url_for('verify') }}" class="btn btn-light btn-lg px-4">
-                        <i class="bi bi-upload"></i> Verify Document Now
-                    </a>
-                    <a href="{{ url_for('how_it_works') }}" class="btn btn-outline-light btn-lg px-4">
-                        <i class="bi bi-question-circle"></i> How It Works
-                    </a>
-                </div>
+<section class="hero">
+    <div class="container hero-container">
+        <div class="hero-content">
+            <div class="hero-badge">
+                <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                </svg>
+                <span>Powered by Claude AI</span>
             </div>
-            <div class="col-lg-5 text-center mt-4 mt-lg-0">
-                <div class="hero-icon-container">
-                    <i class="bi bi-shield-check display-1" style="font-size: 12rem; opacity: 0.9;"></i>
+
+            <h1 class="hero-title">
+                Professional Verification for UK Employment Law Documents
+            </h1>
+
+            <p class="hero-description">
+                AI-assisted verification of Employment Tribunal and EAT documents against substantive law,
+                procedural requirements, and drafting standards. Educational tool for quality assurance.
+            </p>
+
+            <div class="hero-actions">
+                <a href="{{ url_for('verify') }}" class="btn btn-lg" style="background: white; color: var(--color-primary-700); box-shadow: var(--shadow-xl);">
+                    <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"/>
+                    </svg>
+                    Verify Document Now
+                </a>
+                <a href="{{ url_for('how_it_works') }}" class="btn btn-lg btn-outline" style="border-color: white; color: white;">
+                    <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    </svg>
+                    How It Works
+                </a>
+            </div>
+
+            <div class="hero-stats">
+                <div class="hero-stat">
+                    <span class="hero-stat-value">5</span>
+                    <span class="hero-stat-label">Verification Criteria</span>
+                </div>
+                <div class="hero-stat">
+                    <span class="hero-stat-value">2-5</span>
+                    <span class="hero-stat-label">Minutes Average</span>
+                </div>
+                <div class="hero-stat">
+                    <span class="hero-stat-value">10+</span>
+                    <span class="hero-stat-label">Document Types</span>
                 </div>
             </div>
         </div>
@@ -41,139 +59,250 @@
 </section>
 
 <!-- Key Features -->
-<section class="py-5">
+<section class="section-py">
     <div class="container">
-        <h2 class="text-center mb-5">Key Features</h2>
-        <div class="row g-4">
-            <div class="col-md-4">
-                <div class="card h-100 border-0 shadow-sm">
-                    <div class="card-body text-center p-4">
-                        <div class="feature-icon mb-3">
-                            <i class="bi bi-check-circle text-success" style="font-size: 3rem;"></i>
-                        </div>
-                        <h5 class="card-title">Rules-Based Analysis</h5>
-                        <p class="card-text text-muted">
-                            Comprehensive verification against ET/EAT Rules 2024, substantive law, and best practice standards
-                        </p>
-                    </div>
+        <div class="text-center" style="max-width: 800px; margin: 0 auto var(--space-12);">
+            <h2 style="font-size: var(--text-4xl); margin-bottom: var(--space-4);">
+                Why Use Legal Verification Protocol?
+            </h2>
+            <p style="font-size: var(--text-lg); color: var(--color-text-secondary);">
+                Professional-grade document verification designed specifically for UK Employment Law practitioners,
+                advisors, and individuals representing themselves.
+            </p>
+        </div>
+
+        <div class="features-grid">
+            <div class="card card-interactive">
+                <div class="feature-icon">
+                    <svg width="32" height="32" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    </svg>
                 </div>
+                <h3 class="feature-title">Comprehensive Analysis</h3>
+                <p class="feature-description">
+                    Verifies against ET/EAT Rules 2024, substantive law, procedural requirements,
+                    and professional drafting standards.
+                </p>
             </div>
-            <div class="col-md-4">
-                <div class="card h-100 border-0 shadow-sm">
-                    <div class="card-body text-center p-4">
-                        <div class="feature-icon mb-3">
-                            <i class="bi bi-clock-history text-primary" style="font-size: 3rem;"></i>
-                        </div>
-                        <h5 class="card-title">Instant Results</h5>
-                        <p class="card-text text-muted">
-                            Upload your document and receive a detailed verification report within minutes
-                        </p>
-                    </div>
+
+            <div class="card card-interactive">
+                <div class="feature-icon" style="background: linear-gradient(135deg, var(--color-secondary-100), var(--color-secondary-200));">
+                    <svg width="32" height="32" fill="none" viewBox="0 0 24 24" stroke="currentColor" style="color: var(--color-secondary-600);">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                    </svg>
                 </div>
+                <h3 class="feature-title">Instant Results</h3>
+                <p class="feature-description">
+                    Receive detailed verification reports within 2-5 minutes. Upload your document
+                    and get immediate quality assurance feedback.
+                </p>
             </div>
-            <div class="col-md-4">
-                <div class="card h-100 border-0 shadow-sm">
-                    <div class="card-body text-center p-4">
-                        <div class="feature-icon mb-3">
-                            <i class="bi bi-file-earmark-text text-info" style="font-size: 3rem;"></i>
-                        </div>
-                        <h5 class="card-title">Multiple Document Types</h5>
-                        <p class="card-text text-muted">
-                            ET1/ET3 forms, tribunal submissions, EAT appeals, skeleton arguments, and applications
-                        </p>
-                    </div>
+
+            <div class="card card-interactive">
+                <div class="feature-icon" style="background: linear-gradient(135deg, var(--color-success-100), var(--color-success-200));">
+                    <svg width="32" height="32" fill="none" viewBox="0 0 24 24" stroke="currentColor" style="color: var(--color-success-600);">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+                    </svg>
                 </div>
+                <h3 class="feature-title">Privacy First</h3>
+                <p class="feature-description">
+                    No data retention. Documents processed temporarily and immediately deleted.
+                    UK GDPR compliant with full transparency.
+                </p>
             </div>
         </div>
     </div>
 </section>
 
-<!-- What We Check -->
-<section class="py-5 bg-light">
+<!-- Verification Framework -->
+<section class="section-py" style="background-color: var(--color-bg-secondary);">
     <div class="container">
-        <h2 class="text-center mb-5">Verification Framework</h2>
-        <div class="row g-4">
-            <div class="col-md-6">
-                <div class="verification-item p-4 bg-white rounded shadow-sm h-100">
-                    <h5><i class="bi bi-book text-primary"></i> Substantive Law</h5>
-                    <ul class="text-muted mb-0">
-                        <li>Legal claims and defenses</li>
-                        <li>Current case law (2024 Rules)</li>
-                        <li>Accuracy of legal principles</li>
-                        <li>Strength of arguments</li>
-                    </ul>
+        <div class="text-center" style="max-width: 800px; margin: 0 auto var(--space-12);">
+            <h2 style="font-size: var(--text-4xl); margin-bottom: var(--space-4);">
+                5-Point Verification Framework
+            </h2>
+            <p style="font-size: var(--text-lg); color: var(--color-text-secondary);">
+                Every document is analyzed against our comprehensive verification protocol
+                developed specifically for UK Employment Law.
+            </p>
+        </div>
+
+        <div class="framework-grid">
+            <div class="framework-item">
+                <div class="framework-item-header">
+                    <svg class="framework-item-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+                    </svg>
+                    <h3 class="framework-item-title">Substantive Law</h3>
                 </div>
+                <ul class="framework-item-list">
+                    <li>Legal claims and defenses verified</li>
+                    <li>Current case law checked (2024 Rules)</li>
+                    <li>Accuracy of legal principles</li>
+                    <li>Strength of arguments assessed</li>
+                </ul>
             </div>
-            <div class="col-md-6">
-                <div class="verification-item p-4 bg-white rounded shadow-sm h-100">
-                    <h5><i class="bi bi-clipboard-check text-success"></i> Procedural Compliance</h5>
-                    <ul class="text-muted mb-0">
-                        <li>Time limits and deadlines</li>
-                        <li>Required forms and contents</li>
-                        <li>Service and filing procedures</li>
-                        <li>Case management compliance</li>
-                    </ul>
+
+            <div class="framework-item">
+                <div class="framework-item-header">
+                    <svg class="framework-item-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/>
+                    </svg>
+                    <h3 class="framework-item-title">Procedural Compliance</h3>
                 </div>
+                <ul class="framework-item-list">
+                    <li>ET/EAT Rules 2024 compliance</li>
+                    <li>Time limits and deadlines</li>
+                    <li>Required forms and contents</li>
+                    <li>Service and filing procedures</li>
+                </ul>
             </div>
-            <div class="col-md-6">
-                <div class="verification-item p-4 bg-white rounded shadow-sm h-100">
-                    <h5><i class="bi bi-pencil-square text-info"></i> Pleading Quality</h5>
-                    <ul class="text-muted mb-0">
-                        <li>Sufficient factual particulars</li>
-                        <li>Clear chronology and dates</li>
-                        <li>Quantum properly pleaded</li>
-                        <li>Causal links established</li>
-                    </ul>
+
+            <div class="framework-item">
+                <div class="framework-item-header">
+                    <svg class="framework-item-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/>
+                    </svg>
+                    <h3 class="framework-item-title">Pleading Quality</h3>
                 </div>
+                <ul class="framework-item-list">
+                    <li>Sufficient factual particulars</li>
+                    <li>Clear chronology and dates</li>
+                    <li>Quantum properly pleaded</li>
+                    <li>Causal links established</li>
+                </ul>
             </div>
-            <div class="col-md-6">
-                <div class="verification-item p-4 bg-white rounded shadow-sm h-100">
-                    <h5><i class="bi bi-diagram-3 text-warning"></i> Internal Consistency</h5>
-                    <ul class="text-muted mb-0">
-                        <li>Logical flow and structure</li>
-                        <li>No contradictions</li>
-                        <li>Evidence properly referenced</li>
-                        <li>Clear and concise drafting</li>
-                    </ul>
+
+            <div class="framework-item">
+                <div class="framework-item-header">
+                    <svg class="framework-item-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                    </svg>
+                    <h3 class="framework-item-title">Internal Consistency</h3>
                 </div>
+                <ul class="framework-item-list">
+                    <li>Logical flow and structure</li>
+                    <li>No contradictions</li>
+                    <li>Evidence properly referenced</li>
+                    <li>Clear and concise drafting</li>
+                </ul>
+            </div>
+
+            <div class="framework-item">
+                <div class="framework-item-header">
+                    <svg class="framework-item-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"/>
+                    </svg>
+                    <h3 class="framework-item-title">Document-Specific</h3>
+                </div>
+                <ul class="framework-item-list">
+                    <li>ET1/ET3 mandatory sections</li>
+                    <li>EAT permission requirements</li>
+                    <li>Authorities properly cited</li>
+                    <li>Format and presentation standards</li>
+                </ul>
+            </div>
+
+            <div class="framework-item" style="grid-column: span 1;">
+                <div class="framework-item-header">
+                    <svg class="framework-item-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
+                    </svg>
+                    <h3 class="framework-item-title">Risk Assessment</h3>
+                </div>
+                <ul class="framework-item-list">
+                    <li>Litigation risks identified</li>
+                    <li>Severity classification</li>
+                    <li>Priority recommendations</li>
+                    <li>Remediation guidance</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Trust Signals -->
+<section class="trust-section">
+    <div class="container">
+        <div class="trust-badges">
+            <div class="trust-badge">
+                <svg class="trust-badge-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+                </svg>
+                <span class="trust-badge-label">No Data<br>Retention</span>
+            </div>
+
+            <div class="trust-badge">
+                <svg class="trust-badge-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                </svg>
+                <span class="trust-badge-label">UK GDPR<br>Compliant</span>
+            </div>
+
+            <div class="trust-badge">
+                <svg class="trust-badge-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 21v-4m0 0V5a2 2 0 012-2h6.5l1 1H21l-3 6 3 6h-8.5l-1-1H5a2 2 0 00-2 2zm9-13.5V9"/>
+                </svg>
+                <span class="trust-badge-label">England &<br>Wales Only</span>
+            </div>
+
+            <div class="trust-badge">
+                <svg class="trust-badge-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+                <span class="trust-badge-label">2024 Rules<br>Updated</span>
             </div>
         </div>
     </div>
 </section>
 
 <!-- Important Notice -->
-<section class="py-5">
+<section class="section-py">
     <div class="container">
-        <div class="alert alert-warning border-warning shadow-sm">
-            <h5 class="alert-heading">
-                <i class="bi bi-exclamation-triangle-fill"></i> Important Notice
-            </h5>
-            <p class="mb-2">
-                <strong>This is an AI-assisted educational tool, not a law firm.</strong>
-            </p>
-            <ul class="mb-2">
-                <li>Not regulated by the SRA or BSB</li>
-                <li>Does not provide legal advice or representation</li>
-                <li>Does not create a solicitor-client relationship</li>
-                <li>Focus: Quality of reasoning, authorities, and procedure</li>
-            </ul>
-            <hr>
-            <p class="mb-0">
-                You remain responsible for all deadlines, filings, and obtaining qualified legal representation.
-                <a href="{{ url_for('legal') }}" class="alert-link">Read full legal disclaimer</a>
-            </p>
+        <div class="alert alert-warning" style="max-width: 900px; margin: 0 auto;">
+            <svg class="alert-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
+            </svg>
+            <div class="alert-content">
+                <h3 class="alert-title">Important Notice - Educational Tool Only</h3>
+                <div class="alert-message">
+                    <p style="margin-bottom: var(--space-2);"><strong>This tool does NOT:</strong></p>
+                    <ul style="margin-left: var(--space-6); margin-bottom: var(--space-4);">
+                        <li>Provide legal advice or representation</li>
+                        <li>Create a solicitor-client relationship</li>
+                        <li>Offer regulated legal services under SRA/BSB rules</li>
+                        <li>Replace qualified legal professionals</li>
+                    </ul>
+                    <p style="margin-bottom: 0;">
+                        <strong>You remain responsible for:</strong> All deadlines, filings, and obtaining qualified
+                        legal representation. This is a quality assurance tool for educational purposes.
+                        <a href="{{ url_for('legal') }}" style="text-decoration: underline; font-weight: 600;">Read full legal disclaimer →</a>
+                    </p>
+                </div>
+            </div>
         </div>
     </div>
 </section>
 
 <!-- CTA Section -->
-<section class="py-5 bg-primary text-white">
-    <div class="container text-center">
-        <h2 class="mb-4">Ready to Verify Your Document?</h2>
-        <p class="lead mb-4">Upload your ET or EAT document and receive a comprehensive verification report</p>
-        <a href="{{ url_for('verify') }}" class="btn btn-light btn-lg px-5">
-            <i class="bi bi-upload"></i> Start Verification
-        </a>
+<section class="cta-section">
+    <div class="container">
+        <h2 class="cta-title">Ready to Verify Your Document?</h2>
+        <p class="cta-description">
+            Upload your ET or EAT document and receive a comprehensive verification report
+            within minutes. No signup required, completely free.
+        </p>
+        <div style="display: flex; justify-content: center; gap: var(--space-4); flex-wrap: wrap;">
+            <a href="{{ url_for('verify') }}" class="btn btn-lg" style="background: white; color: var(--color-primary-700);">
+                <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"/>
+                </svg>
+                Start Verification
+            </a>
+            <a href="{{ url_for('how_it_works') }}" class="btn btn-lg btn-ghost" style="background: rgba(255,255,255,0.15); color: white; border: none;">
+                Learn More
+            </a>
+        </div>
     </div>
 </section>
 {% endblock %}
