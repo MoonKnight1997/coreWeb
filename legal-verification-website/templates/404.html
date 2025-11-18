@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block title %}Page Not Found - Legal Verification Protocol{% endblock %}
+
+{% block content %}
+<section class="error-page">
+    <div class="container">
+        <div class="error-content">
+            <div class="error-icon">
+                <svg width="120" height="120" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/>
+                </svg>
+            </div>
+            <h1 class="error-code">404</h1>
+            <h2 class="error-title">Page Not Found</h2>
+            <p class="error-description">
+                The page you're looking for doesn't exist or has been moved.
+            </p>
+            <div class="error-actions">
+                <a href="{{ url_for('index') }}" class="btn btn-primary btn-lg">
+                    <svg class="icon" width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+                    </svg>
+                    Return Home
+                </a>
+                <a href="{{ url_for('verify') }}" class="btn btn-outline btn-lg">
+                    <svg class="icon" width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/>
+                    </svg>
+                    Verify Document
+                </a>
+            </div>
+            <div class="error-help">
+                <p class="error-help-text">
+                    Need help? Visit our <a href="{{ url_for('support') }}">support page</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
